@@ -1,0 +1,454 @@
+Ecru:240 234 218
+Snow White:255 255 255
+White:252 251 248
+Dusty Rose Ult Vy Dk:171 2 73
+Dusty Rose Vry Lt:240 206 212
+Shell Pink Med Light:226 160 153
+Violet Very Light:230 204 217
+Grape Very Dark:87 36 51
+Blue Violet Med Dark:152 145 182
+Blue Violet Med Lt:163 174 209
+Cornflower Blue Vy Lt:187 195 217
+Cornflower Blu M V D:76 82 110
+Blue Gray Light:199 202 215
+Blue Gray Medium:153 159 183
+Blue Gray:120 128 164
+Blue Ultra Very Light:219 236 245
+Celadon Green Md:77 131 97
+Forest Green Lt:200 216 184
+Moss Green Vy Lt:239 244 164
+Moss Green Md Lt:192 200 64
+Yellow Beige V Dk:167 124 73
+Pewter Very Light:209 209 209
+Pewter Light:132 132 132
+Lavender Very Dark:131 91 139
+Lavender Dark:163 123 167
+Lavender Medium:195 159 195
+Lavender Light:227 203 227
+Shell Pink Vy Dk:136 62 67
+Shell Pink Light:204 132 124
+Shell Pink Very Light:235 183 175
+Shell Pink Ult Vy Lt:255 223 213
+Mahogany Vy Dk:111 47 0
+Mahogany Med:179 95 43
+Red Medium:183 31 51
+Lemon:253 237 84
+Rose Dark:86 74 74
+Black:0 0 0
+Wedgewood Ult VyDk:28 80 102
+Baby Blue Very Dark:53 102 139
+Antique Mauve Md Dk:129 73 82
+Antique Mauve Med:183 115 127
+Pewter Gray:108 108 108
+Steel Gray Lt:171 171 171
+Pistachio Grn Vy Dk:32 95 46
+Pistachio Green Med:105 136 90
+Red:199 43 59
+Baby Blue Dark:90 143 184
+Rose Very Dark:179 59 75
+Violet Dark:99 54 102
+Blue Violet Very Dark:92 84 120
+Baby Blue Medium:115 159 193
+Rose:238 84 110
+Navy Blue:37 59 115
+Blue Violet Medium:173 167 199
+Blue Violet Light:183 191 221
+Salmon Very Dark:191 45 45
+Coral Dark:210 16 53
+Coral Medium:224 72 72
+Coral:233 106 103
+Coral Light:253 156 151
+Peach:254 215 204
+Terra Cotta Dark:152 68 54
+Terra Cotta Med:197 106 91
+Pistachio Green Dk:97 122 82
+Pistachio Green Lt:166 194 152
+Pistachio Green Vy Lt:215 237 204
+Mustard Medium:184 157 100
+Mustard:191 166 113
+Mustard Lt:204 183 132
+Mahogany Dark:143 67 15
+Mahogany Vy Lt:247 167 119
+Desert Sand Med:187 129 97
+Pewter Gray Dark:86 86 86
+Steel Gray Dk:140 140 140
+Pearl Gray:211 211 214
+Hazelnut Brown Dk:160 112 66
+Hazelnut Brown Lt:198 159 123
+Brown Med:122 69 31
+Brown Light:152 94 51
+Brown Very Light:184 119 72
+Tan:203 144 81
+Tan Light:228 187 142
+Lemon Dark:255 214 0
+Lemon Light:255 251 139
+Shell Gray Dark:145 123 115
+Shell Gray Med:192 179 174
+Shell Gray Light:215 206 203
+Avocado Green:114 132 60
+Avocado Grn Lt:148 171 79
+Avocado Grn V Lt:174 191 121
+Avocado Grn U Lt:216 228 152
+Red Dark:167 19 43
+Blue Green Vy Dk:4 77 51
+Blue Green Dark:57 111 82
+Blue Green:91 144 113
+Blue Green Med:123 172 148
+Blue Green Vy Lt:196 222 204
+Jade Green:51 131 98
+Wedgewood Dark:59 118 143
+Wedgewood Light:79 147 167
+Sky Blue:126 177 200
+Fern Green Dark:102 109 79
+Fern Green:150 158 126
+Fern Green Lt:171 177 151
+Fern Green Vy Lt:196 205 172
+Ash Gray Vy Lt:99 100 88
+Beige Brown Ult Vy Lt:242 227 206
+Violet Very Dark:92 24 78
+Violet  Medium:128 58 107
+Violet:163 99 139
+Violet Light:219 179 203
+Celadon Green VD:44 106 69
+Jade Medium:83 151 106
+Jade Light:143 192 152
+Jade Very Light:167 205 175
+Moss Green Dk:136 141 51
+Moss Green:167 174 56
+Turquoise:91 163 179
+Turquoise Light:144 195 204
+Cranberry Very Dark:205 47 99
+Cranberry Dark:209 40 106
+Cranberry Medium:226 72 116
+Cranberry:255 164 190
+Cranberry Light:255 176 190
+Cranberry Very Light:255 192 205
+Orange-Red Bright:250 50 3
+Burnt Orange Bright:253 93 53
+Drab Brown Dk:121 96 71
+Drab Brown:150 118 86
+Drab Brown Lt:188 154 120
+Drab Brown V Lt:220 196 170
+Desert Sand Ult Vy Dk:135 85 57
+Beige Gray Vy Dk:133 123 97
+Beige Gray Dark:164 152 120
+Beige Gray Med:221 216 203
+Beaver Gray Vy Dk:110 101 92
+Beaver Gray Dk:135 125 115
+Beaver Gray Med:176 166 156
+Beaver Gray Lt:188 180 172
+Bright Red:227 29 66
+Old Gold Lt:229 206 151
+Old Gold Vy Lt:245 236 203
+Old Gold Dark:188 141 14
+Green:5 101 23
+Green Bright:7 115 27
+Green Light:63 143 41
+Kelly Green:71 167 47
+Chartreuse:123 181 71
+Chartreuse Bright:158 207 52
+Cream:255 251 239
+Plum:156 36 98
+Orange Spice Dark:229 92 31
+Orange Spice Med:242 120 66
+Orange Spice Light:247 151 111
+Topaz Med Lt:255 200 64
+Topaz Light:253 215 85
+Topaz Vy Lt:255 241 175
+Topaz:228 180 104
+Old Gold Medium:208 165 62
+Olive Green V Dk:130 123 48
+Olive Green Dk:147 139 55
+Olive Green:148 140 54
+Olive Green Md:188 179 76
+Olive Green Lt:199 192 119
+Tan Very Light:236 204 158
+Tan Ult Vy Lt:248 228 200
+Tangerine:255 139 0
+Tangerine Med:255 163 43
+Tangerine Light:255 191 87
+Yellow Med:254 211 118
+Yellow Pale:255 231 147
+Yellow Pale Light:255 233 173
+Off White:252 252 238
+Peacock Blue Vy Lt:229 252 253
+Peach Light:247 203 191
+Terra Cotta Vy Lt:238 170 155
+Salmon:245 173 173
+Salmon Light:255 201 201
+Pearl Gray Vy Lt:236 236 236
+Yellow Green Vy Lt:228 236 212
+Baby Blue Very Light:217 235 241
+Pink Medium:252 176 185
+Raspberry Very Dark:145 53 70
+Antique Mauve Vy Lt:223 179 187
+Cocoa Dark:98 75 69
+Topaz Ultra Vy Dk:148 99 26
+Topaz Very Dark:162 109 32
+Topaz Dark:174 119 32
+Topaz Medium:206 145 36
+Cornflower Blue V D:70 69 99
+Cornflower Blue Dark:85 91 123
+Cornflower Blue Med:112 125 162
+Cornflower Blue Light:143 156 193
+Royal Blue Dark:17 65 109
+Royal Blue:19 71 125
+Delft Blue Dark:70 106 142
+Delft Blue Medium:116 142 182
+Delft Blue Pale:192 204 222
+Coffee Brown Dk:101 57 25
+Baby Blue Ult Vy Dk:44 89 124
+Peacock Blue Dark:61 149 165
+Peacock Blue:100 171 186
+Delft Blue:148 168 198
+Blue Light:161 194 215
+Garnet Dark:123 0 27
+Garnet Medium:135 7 31
+Garnet:151 11 35
+Coral Red Very Dark:187 5 31
+Baby Pink:255 223 217
+Baby Pink Light:255 238 235
+Royal Blue Very Dark:14 54 92
+Beige Gray Light:231 226 211
+Navy Blue Dark:33 48 99
+Blue Very Dark:57 105 135
+Blue Dark:71 129 165
+Blue Medium:107 158 191
+Blue Very Light:189 221 237
+Sky Blue Vy Lt:197 232 237
+Golden Olive Vy Dk:126 107 66
+Golden Olive Dk:141 120 75
+Golden Olive Md:170 143 86
+Golden Olive:189 155 81
+Golden Olive Lt:200 171 108
+Golden Olive Vy Lt:219 190 127
+Beige Brown Vy Dk:89 73 55
+Beige Brown Dk:103 85 65
+Beige Brown Med:154 124 92
+Beige Brown Lt:182 155 126
+Beige Brown Vy Lt:209 186 161
+Beaver Gray Ult Dk:72 72 72
+Hazelnut Brown V Dk:131 94 57
+Pistachio Grn Ult V D:23 73 35
+Carnation Dark:255 87 115
+Carnation Medium:255 121 140
+Carnation Light:252 144 162
+Carnation Very Light:255 178 187
+Hunter Green Vy Dk:27 83 0
+Coffee Brown Vy Dk:73 42 19
+Rose Medium:242 118 136
+Burnt Orange Dark:209 88 7
+Garnet Very Dark:130 38 55
+Parrot Green V Dk:85 120 34
+Parrot Green Dk:98 138 40
+Parrot Green Md:127 179 53
+Parrot Green Lt:199 230 102
+Emerald Green Vy Dk:21 111 73
+Emerald Green Dark:24 126 86
+Emerald Green Med:24 144 101
+Emerald Green Lt:27 157 107
+Nile Green Med:109 171 119
+Plum Dark:130 0 67
+Plum Medium:155 19 89
+Red?Copper Dark:130 52 10
+Red?Copper:166 69 16
+Copper Med:172 84 20
+Copper:198 98 24
+Copper Light:226 115 35
+Gray Green Vy Dark:86 106 106
+Gray Green Med:152 174 174
+Gray Green Light:189 203 203
+Gray Green Vy Lt:221 227 227
+Antique Blue Dark:69 92 113
+Antique Blue Medium:106 133 158
+Antique Blue Light:162 181 198
+Avocado Grn Black:49 57 25
+Avocado Green Dk:66 77 33
+Avocado Grn V Dk:76 88 38
+Avocado Green Md:98 113 51
+Coffee Brown Ult Dk:54 31 14
+Navy Blue Very Dark:27 40 83
+Green Bright Md:61 147 132
+Tawny:251 213 187
+Burnt Orange Med:235 99 7
+Burnt Orange:255 123 77
+Peach Very Light:254 231 218
+Desert Sand Light:238 211 196
+Tawny Light:255 226 207
+Nile Green:136 186 145
+Nile Green Light:162 214 173
+Geranium:255 145 145
+Geranium Pale:253 181 181
+Sea Green Dark:62 182 161
+Sea Green Med:89 199 180
+Dusty Rose Dark:207 115 115
+Dusty Rose Medium:230 138 138
+Dusty Rose Ult Vy Lt:255 215 215
+Sea Green Light:169 226 216
+Jade Ultra Vy Lt:185 215 192
+Apricot Very Light:255 222 213
+Pumpkin Light:247 139 19
+Pumpkin:246 127 0
+Canary Deep:255 181 21
+Canary Bright:255 227 0
+Golden Brown Dk:145 79 18
+Golden Brown Med:194 129 66
+Golden Brown Light:220 156 86
+Forest Green Vy Dk:64 82 48
+Forest Green Dk:88 113 65
+Forest Green Med:115 139 91
+Forest Green :141 166 117
+Aquamarine Dk:71 123 110
+Aquamarine Lt:111 174 159
+Aquamarine Vy Lt:144 192 180
+Electric Blue Dark:38 150 182
+Electric Blue Medium:48 194 236
+Khaki Green Dk:137 138 88
+Khaki Green Md:166 167 93
+Khaki Green Lt:185 185 130
+Brown Gray Vy Dk:79 75 65
+Brown Gray Med:142 144 120
+Brown Gray Light:177 170 151
+Brown Gray Vy Lt:235 234 231
+Mocha Brown Vy Dk:75 60 42
+Mocha Brown Med:179 159 139
+Mocha Brown Vy Lt:227 216 204
+Antique Violet Medium:149 111 124
+Antique Violet Light:183 157 167
+Yellow Beige Dk:188 150 106
+Yellow Beige Md:216 188 154
+Yellow Beige Lt:231 214 193
+Green Gray Dk:95 102 72
+Green Gray Md:136 146 104
+Green Gray:156 164 130
+Desert Sand:196 142 112
+Beaver Gray Vy Lt:230 232 232
+Golden Yellow Vy Lt:253 249 205
+Baby Blue Light:184 210 230
+Rose Light:251 173 180
+Salmon Dark:227 109 109
+Apricot Med:255 131 111
+Apricot:252 171 152
+Hunter Green Dk:27 89 21
+Hunter Green:64 106 58
+Yellow Green Med:113 147 92
+Yellow Green Lt:204 217 177
+Dusty Rose Ultra Dark:188 67 101
+Dusty Rose Light:228 166 172
+Pine Green Dk:94 107 71
+Pine Green Md:114 130 86
+Pine Green:131 151 95
+Black Brown:30 17 8
+Plum Light:197 73 137
+Plum Very Light:234 156 196
+Plum Ultra Light:244 174 213
+Mauve Very Dark:136 21 49
+Mauve:201 107 112
+Mauve Medium:231 169 172
+Mauve Light:251 191 194
+Melon Dark:255 121 146
+Melon Medium:255 173 188
+Melon Light:255 203 213
+Salmon Medium:241 135 135
+Salmon Very Light:255 226 226
+Dusty Rose Med Vy Lt:255 189 189
+Shell Pink Dark:161 75 81
+Shell Pink Med:188 108 100
+Antique Mauve Dark:155 91 102
+Antique Mauve Light:219 169 178
+Dusty Rose Very Dark:218 103 131
+Dusty Rose:232 135 155
+Antique Violet Dark:120 87 98
+Antique Violet Vy Lt:215 203 211
+Blue Violet Dark:119 107 152
+Blue Violet Vy Lt:211 215 237
+Antique Blue Very Dk:56 76 94
+Antique Blue Very Lt:199 209 219
+Antique Blue Ult Vy Lt:219 226 233
+Baby Blue:147 180 206
+Baby Blue Ult Vy Lt:238 252 252
+Wedgewood Med:62 133 162
+Sky Blue Light:172 216 226
+Peacock Blue Vy Dk:52 127 140
+Peacock Blue Light:153 207 217
+Gray Green Dark:101 127 127
+Tawny Vy Light:255 238 227
+Terra Cotta Ult Vy Lt:244 187 169
+Desert Sand Vy Dk:160 108 80
+Desert Sand Dark:182 117 82
+Desert Sand Vy Lt:243 225 215
+Mahogany Light:207 121 57
+Terra Cotta Vy Dk:134 48 34
+Terra Cotta Light:217 137 120
+Rosewood Ult Vy Lt:248 202 200
+Mocha Brown Dk:107 87 67
+Mocha Brown Lt:210 188 166
+Brown Gray Dark:98 93 80
+Beige Gray Ult Dk:127 106 85
+Pewter Gray Vy Dk:66 66 66
+Melon Very Dark:231 73 103
+Antique Mauve Vy Dk:113 65 73
+Mauve Dark:171 51 87
+Cyclamen Pink Dark:224 40 118
+Cyclamen Pink:243 71 139
+Cyclamen Pink Light:255 140 174
+Cornflower Blue:96 103 140
+Turquoise Ult Vy Dk:54 105 112
+Turquoise Vy Dark:63 124 133
+Turquoise Dark:72 142 154
+Turquoise Very Light:188 227 230
+Sea Green Vy Dk:47 140 132
+Blue Green Lt:178 212 189
+Aquamarine:80 139 125
+Celadon Green Dk:71 119 89
+Celadon Green:101 165 125
+Celadon Green Lt:153 195 170
+Emerald Grn Ult V Dk:17 90 59
+Moss Green Lt:224 232 104
+Straw Dark:223 182 95
+Straw:243 206 117
+Straw Light:246 220 152
+Yellow Ultra Pale:255 253 227
+Apricot Light:254 205 194
+Pumpkin Pale:253 189 150
+Golden Brown:173 114 57
+Golden Brown Pale:247 187 119
+Hazelnut Brown:183 139 97
+Old Gold Vy Dark:169 130 4
+Terra Cotta:185 85 68
+Raspberry Dark:179 47 72
+Raspberry Medium:219 85 110
+Raspberry Light:234 134 153
+Grape Dark:114 55 93
+Grape Medium:148 96 131
+Grape Light:186 145 170
+Lavender Ultra Dark:108 58 110
+Lavender Blue Dark:92 114 148
+Lavender Blue Med:123 142 171
+Lavender Blue Light:176 192 218
+Baby Blue Pale:205 223 237
+Wedgewood Vry Dk:50 102 124
+Electric Blue:20 170 208
+Turquoise Bright Dark:18 174 186
+Turquoise Bright Med:4 196 202
+Turquoise Bright Light:6 227 230
+Teal Green Dark:52 125 117
+Teal Green Med:85 147 146
+Teal Green Light:82 179 164
+Green Bright Dk:55 132 119
+Green Bright Lt:73 179 161
+Straw Very Dark:205 157 55
+Autumn Gold Dk:242 151 70
+Autumn Gold Med:242 175 104
+Autumn Gold Lt:250 211 150
+Mahogany Ult Vy Lt:255 211 181
+Rosewood Dark:104 37 26
+Rosewood Med:150 74 63
+Rosewood Light:186 139 124
+Cocoa:125 93 87
+Cocoa Light:166 136 129
+Mocha Beige Dark:138 110 78
+Mocha Beige Med:164 131 92
+Mocha Beige Light:203 182 156
+Winter White:249 247 241
+Mocha Brn Ult Vy Lt:250 246 240
