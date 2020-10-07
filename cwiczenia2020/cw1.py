@@ -17,11 +17,10 @@ def cw2(target):
             f1 = b
             while(f0 + f1 < target + 2):
                 new_number = f0 + f1
-                if new_number == target:
-                    if a + b < best:
-                        result_a = a
-                        result_b = b
-                        best = a+b
+                if new_number == target and a+b < best:
+                    result_a = a
+                    result_b = b
+                    best = a+b
                 f0 = f1
                 f1 = new_number
     print(f"ta pierwsza to {result_a} a ta druga to {result_b}")
@@ -69,7 +68,7 @@ def cw5(pole):
 def cw6_funkcja(x):
     return x**x -2020
 def cw6():
-    #chuj wie co z ta bisekcja...
+    #co z ta bisekcja...
     return None
 def cw7():
     liczba_szukana = int(input("Podaj liczbe:"))
@@ -95,6 +94,21 @@ def cw8(liczba):
             return "tak" 
         n+=1
     return "nie"
+def cw9(liczba):
+    for i in range(liczba,0,-1):
+        if liczba % i == 0:
+            print(i)
+def cw10():
+    maximum = 10**6
+    for a in range(4,maximum+1):
+        suma = 0
+        for i in range(a-1,0,-1):
+            if a % i == 0:
+                suma += i
+        if suma == a:
+            print(a, "Jest dobra")
+
+
 
 if __name__ == "__main__":
-    print(cw8(17))
+    print(cw10())
