@@ -7,6 +7,7 @@ def cw1():
         new_number = a2+a1
         a1 = a2
         a2 = new_number
+
 def cw2(target):
     best = target
     result_a =0
@@ -24,6 +25,7 @@ def cw2(target):
                 f0 = f1
                 f1 = new_number
     print(f"ta pierwsza to {result_a} a ta druga to {result_b}")
+
 def cw3(searched_number):
     a1 : int = 1
     a2 : int = 1
@@ -48,6 +50,7 @@ def cw3(searched_number):
         a1 = a2
         a2 = new_number
 
+
 def cw4(searched_number):
     suma = 0
     ret = 1
@@ -58,6 +61,7 @@ def cw4(searched_number):
         if suma > searched_number:
             return "Nie ma"
         ret += 1
+
 def cw5(pole):
     dokladnosc :float = 0.01
     a,b = 1.,pole
@@ -65,11 +69,14 @@ def cw5(pole):
         a = (a+b)/2
         b = pole/a
     return a
+
 def cw6_funkcja(x):
     return x**x -2020
+
 def cw6():
     #co z ta bisekcja...
     return None
+
 def cw7():
     liczba_szukana = int(input("Podaj liczbe:"))
     a1 = 1
@@ -85,6 +92,7 @@ def cw7():
             i+=1
             new_number = a2*i
     return "nie ma takiej liczby"
+
 def cw8(liczba):
     if liczba % 2 == 0:
         return "tak"
@@ -94,10 +102,12 @@ def cw8(liczba):
             return "tak" 
         n+=1
     return "nie"
+
 def cw9(liczba):
     for i in range(liczba,0,-1):
         if liczba % i == 0:
             print(i)
+
 def cw10():
     maximum = 10**6
     for a in range(4,maximum+1):
@@ -108,7 +118,41 @@ def cw10():
         if suma == a:
             print(a, "Jest dobra")
 
+def cw11():
+    maximum = 10**5
+    for a in range(2,maximum+1):
+        suma_a = 0
+        for i in range((a//2)+1,0,-1):
+            if a % i == 0:
+                suma_a += i
+        suma_b = 0
+        for i in range((suma_a//2)+1,0,-1):
+            if suma_a % i == 0:
+                suma_b += i
+        if suma_b == a and suma_a != a:
+            print(a, suma_a, "Są dobre ...") 
+    return "zakończono"
+def cw12(a =60,b=30,c=105):
+    return min(nwd(a,b),nwd(a,c),nwd(b,c))
 
+def nwd(a,b):
+    while b != 0:
+        b,a = a%b,b
+    return a
+
+def cw13():
+    # nww = a*b*c / nwd
+    a = 14
+    b = 3
+    c = 6
+    nww_a_b = a*b//nwd(a,b)
+    nww_a_c = a*c//nwd(a,c)
+    nww_b_c = b*c//nwd(b,c)
+    return max(nww_a_b,nww_a_c,nww_b_c)
+
+def cw14():
+    # tak szczerze to co to za typ...
+    pass
 
 if __name__ == "__main__":
-    print(cw10())
+    print(cw13())
