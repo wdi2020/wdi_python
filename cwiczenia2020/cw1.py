@@ -1,5 +1,6 @@
 #Cw1 - proste programy z pętlami cz 1 ~~lpawlak
 from math import sqrt
+import math as m
 
 def cw1():
     a1 = 1
@@ -24,8 +25,7 @@ def cw2(target):
                     result_a = a
                     result_b = b
                     best = a+b
-                f0 = f1
-                f1 = new_number
+                f0,f1 = f1,new_number
     print(f"ta pierwsza to {result_a} a ta druga to {result_b}")
 
 def cw3(searched_number):
@@ -72,13 +72,26 @@ def cw5(pole):
         b = pole/a
     return a
 
-def cw6_funkcja(x):
-    return x**x -2020
 
+def f(x):
+    return x**x - 2020
 def cw6():
-    #co z ta bisekcja...
-    return None
+    a = 0
+    b = 10
+    e = 0.000001
+    t = 2020
 
+
+    while True:
+      s = (a + b)/2
+      if abs(f(s)) <= e:
+        break
+      if f(s)*f(a) < 0:
+        b = s
+      else:
+        a = s
+
+    print(s)
 def cw7():
     liczba_szukana = int(input("Podaj liczbe:"))
     a1 = 1
@@ -153,9 +166,20 @@ def cw13():
     nww_b_c = b*c//nwd(b,c)
     return max(nww_a_b,nww_a_c,nww_b_c)
 
+def szereg(x,n):
+        return ((-1)**n)*(x**(2*n))/silnia(2*n)
 def cw14():
     # tak szczerze to co to za typ...
-    pass
+    x = 2*m.pi
+    x_1 = 0
+    x_2 = 12
+    n = 0
+    suma = 0
+    while abs(x_1 - x_2) > 0.0000001:
+        x_1,x_2 = x_2,szereg(x,n)
+        suma += x_2
+        print(suma)
+        n += 1 
 def cw15():
     #for real?
     pass
@@ -200,9 +224,10 @@ def silnia(nr):
 def cw20():
     a_n = 20.0
     b_n = 30.0
-    a_n,b_n = sqrt(a_n*b_n),(a_n+b_n)/2.0
-    while a_n - b_n >  0.000000000001:
+    a_n = sqrt(a_n*b_n)
+    b_n = (a_n+b_n)/2.0
+    while abs(a_n - b_n) >  0.000000000001:
         a_n,b_n = sqrt(a_n*b_n),(a_n+b_n)/2.0
     return b_n
 if __name__ == "__main__":
-    print(cw17())
+    print(cw14())
