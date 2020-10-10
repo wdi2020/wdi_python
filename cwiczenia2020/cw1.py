@@ -64,14 +64,14 @@ def cw4(searched_number):
             return ret-1
         ret += 1
 
-def cw5(pole):
-    dokladnosc :float = 0.01
-    a,b = 1.,pole
-    while abs(a-b) >= dokladnosc:
-        a = (a+b)/2
-        b = pole/a
-    return a
-
+def cw5(A=25):
+    n = 2
+    a = 1
+    b = 123
+    e = 0.00000000001
+    while abs(b-a) >= e:
+        b,a= (1/n)*((n-1)*a+(A/(a**(n-1)))),b
+    return a,b
 
 def f(x):
     return x**x - 2020
@@ -187,7 +187,7 @@ def cw15():
     value_before = sqrt(0.5)
     e = 0.00000000001
     while abs(value_of_ret_val_bef-return_value) >= e:
-        temp = sqrt((1./2.) + ((1./2.)*value_before))
+        temp = sqrt((0.5) + ((.5)*value_before))
         value_of_ret_val_bef = return_value
         return_value *= temp 
         value_before = temp
@@ -217,9 +217,16 @@ def cw17(a = 1, b=1):
         a1,a2 = a2,a1+a2
         iloraz_1, iloraz_2 = iloraz_2,a2/a1
     return iloraz_2
-def cw18(pole=125.0):
+def cw18(A=125.0):
     # hard to tell jak to zrobic
-    pass
+    n = 3
+    a = 1
+    b = 123
+    e = 0.00000000001
+    while abs(b-a) >= e:
+        b,a= (1/n)*((n-1)*a+(A/(a**(n-1)))),b
+    return a,b
+
 def cw19():
     ret = 1.0
     for i in range(1,1000+1):
@@ -240,4 +247,4 @@ def cw20():
         a_n,b_n = sqrt(a_n*b_n),(a_n+b_n)/2.0
     return b_n
 if __name__ == "__main__":
-    print(cw15())
+    print(cw5())
