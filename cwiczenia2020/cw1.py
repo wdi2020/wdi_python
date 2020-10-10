@@ -79,9 +79,6 @@ def cw6():
     a = 0
     b = 10
     e = 0.000001
-    t = 2020
-
-
     while True:
       s = (a + b)/2
       if abs(f(s)) <= e:
@@ -90,8 +87,8 @@ def cw6():
         b = s
       else:
         a = s
-
     print(s)
+
 def cw7():
     liczba_szukana = int(input("Podaj liczbe:"))
     a1 = 1
@@ -169,7 +166,6 @@ def cw13():
 def szereg(x,n):
         return ((-1)**n)*(x**(2*n))/silnia(2*n)
 def cw14():
-    # tak szczerze to co to za typ...
     x = 2*m.pi
     x_1 = 0
     x_2 = 12
@@ -184,13 +180,13 @@ def cw15():
     #for real?
     pass
 def cw16():
-    #not working
+    #working*
     maxymalna_wartosc:int = 0
     liczba = 0
     for i in range(2,10000+1):
         count = 0
         a_n = i
-        while a_n - 1.0 > 0.000000054:
+        while abs(a_n - 1.0) > 0.000000054:
             a_n = cw16_rek(a_n)
             count += 1
         if count > maxymalna_wartosc:
@@ -208,7 +204,7 @@ def cw17(a = 1, b=1):
         iloraz_1, iloraz_2 = iloraz_2,a2/a1
     return iloraz_2
 def cw18():
-    # patrz cw 5, (spoiler alert!)nie ma go
+    # update: nie wiem jak to przerobic...
     pass
 def cw19():
     ret = 1.0
@@ -230,4 +226,4 @@ def cw20():
         a_n,b_n = sqrt(a_n*b_n),(a_n+b_n)/2.0
     return b_n
 if __name__ == "__main__":
-    print(cw14())
+    print(cw16())
