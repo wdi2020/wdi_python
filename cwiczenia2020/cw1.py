@@ -177,8 +177,22 @@ def cw14():
         print(suma)
         n += 1 
 def cw15():
-    #for real?
-    pass
+    #no to tak: return_value to caly ciag
+    # value_of_ret_val_bef to jest poprzednia wartosc ciagu (do sprawdzenia w while )
+    # e to dokladnosc z jaka to ma byc
+    # value_before to jest poprzednia wartosc takie a(n-1) bo ten ciag to a_n =  sqrt(.5+.5(a_n-1)
+    # na koncu konwersja z tego ciagu na wartosc pi czyli 2/ ciag
+    return_value = sqrt(0.5)
+    value_of_ret_val_bef = 2
+    value_before = sqrt(0.5)
+    e = 0.00000000001
+    while abs(value_of_ret_val_bef-return_value) >= e:
+        temp = sqrt((1./2.) + ((1./2.)*value_before))
+        value_of_ret_val_bef = return_value
+        return_value *= temp 
+        value_before = temp
+    pi_value = 2.0/return_value
+    return pi_value
 def cw16():
     #working*
     maxymalna_wartosc:int = 0
@@ -203,8 +217,8 @@ def cw17(a = 1, b=1):
         a1,a2 = a2,a1+a2
         iloraz_1, iloraz_2 = iloraz_2,a2/a1
     return iloraz_2
-def cw18():
-    # update: nie wiem jak to przerobic...
+def cw18(pole=125.0):
+    # hard to tell jak to zrobic
     pass
 def cw19():
     ret = 1.0
@@ -226,4 +240,4 @@ def cw20():
         a_n,b_n = sqrt(a_n*b_n),(a_n+b_n)/2.0
     return b_n
 if __name__ == "__main__":
-    print(cw16())
+    print(cw15())
