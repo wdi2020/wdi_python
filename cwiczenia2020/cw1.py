@@ -241,8 +241,7 @@ def silnia(nr):
 def cw20():
     a_n = 20.0
     b_n = 30.0
-    a_n = sqrt(a_n*b_n)
-    b_n = (a_n+b_n)/2.0
+    a_n, b_n = sqrt(a_n*b_n), (a_n+b_n)/2.0
     while abs(a_n - b_n) >  0.000000000001:
         a_n,b_n = sqrt(a_n*b_n),(a_n+b_n)/2.0
     return b_n
