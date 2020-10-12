@@ -1,6 +1,5 @@
 #Cw1 - proste programy z pętlami cz 1 ~~lpawlak
-from math import sqrt
-import math as m
+from math import pi
 
 def cw1():
     a1 = 1
@@ -166,7 +165,7 @@ def cw13():
 def szereg(x,n):
         return ((-1)**n)*(x**(2*n))/silnia(2*n)
 def cw14():
-    x = 2*m.pi
+    x = 2*pi
     x_1 = 0
     x_2 = 12
     n = 0
@@ -182,12 +181,12 @@ def cw15():
     # e to dokladnosc z jaka to ma byc
     # value_before to jest poprzednia wartosc takie a(n-1) bo ten ciag to a_n =  sqrt(.5+.5(a_n-1)
     # na koncu konwersja z tego ciagu na wartosc pi czyli 2/ ciag
-    return_value = sqrt(0.5)
+    return_value = (0.5)**(0.5)
     value_of_ret_val_bef = 2
-    value_before = sqrt(0.5)
+    value_before = (0.5)**(0.5)
     e = 0.00000000001
     while abs(value_of_ret_val_bef-return_value) >= e:
-        temp = sqrt((0.5) + ((.5)*value_before))
+        temp = ((0.5) + ((.5)*value_before))**(.5)
         value_of_ret_val_bef = return_value
         return_value *= temp 
         value_before = temp
@@ -241,9 +240,9 @@ def silnia(nr):
 def cw20():
     a_n = 20.0
     b_n = 30.0
-    a_n, b_n = sqrt(a_n*b_n), (a_n+b_n)/2.0
+    a_n, b_n = (a_n*b_n)**(0.5), (a_n+b_n)/2.0
     while abs(a_n - b_n) >  0.000000000001:
-        a_n,b_n = sqrt(a_n*b_n),(a_n+b_n)/2.0
+        a_n,b_n = (a_n*b_n)**(0.5),(a_n+b_n)/2.0
     return b_n
 if __name__ == "__main__":
-    print(cw5())
+    print(cw20())
