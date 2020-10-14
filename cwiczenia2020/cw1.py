@@ -6,9 +6,7 @@ def cw1():
     a2 = 1
     while a1 < 10**6:
         print(a1)
-        new_number = a2+a1
-        a1 = a2
-        a2 = new_number
+        a1,a2 = a2,a1+a2
 
 def cw2(target):
     best = target
@@ -63,16 +61,16 @@ def cw4(searched_number):
             return ret-1
         ret += 1
 
-def cw5(A=25):
+def cw5(liczba=25):
     n = 2
     a = 1
     b = 123
     e = 0.00000000001
     while abs(b-a) >= e:
-        b,a= (1/n)*((n-1)*a+(A/(a**(n-1)))),b
+        b,a= (1/n)*((n-1)*a+(liczba/(a**(n-1)))),b
     return a,b
 
-def f(x):
+def funkcja(x):
     return x**x - 2020
 def cw6():
     a = 0
@@ -80,9 +78,9 @@ def cw6():
     e = 0.000001
     while True:
       s = (a + b)/2
-      if abs(f(s)) <= e:
+      if abs(funkcja(s)) <= e:
         break
-      if f(s)*f(a) < 0:
+      if funkcja(s)*funkcja(a) < 0:
         b = s
       else:
         a = s
