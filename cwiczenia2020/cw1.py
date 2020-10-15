@@ -1,5 +1,5 @@
 #Cw1 - proste programy z pętlami cz 1 ~~lpawlak
-from math import pi
+from math import pi,sqrt
 
 def cw1():
     a1 = 1
@@ -10,20 +10,20 @@ def cw1():
 
 def cw2(target):
     best = target
-    result_a =0
+    result_a = 0
     result_b = 0
     for a in range(1,target//2):
         for b in range(1,target//2):
             f0 = a
             f1 = b
-            while(f0 + f1 < target + 2):
+            while(f0 + f1 <= target):
                 new_number = f0 + f1
                 if new_number == target and a+b < best:
                     result_a = a
                     result_b = b
                     best = a+b
                 f0,f1 = f1,new_number
-    print(f"ta pierwsza to {result_a} a ta druga to {result_b}")
+    return (f"ta pierwsza to {result_a} a ta druga to {result_b}")
 
 def cw3(searched_number):
     a1 : int = 1
@@ -126,21 +126,23 @@ def cw10():
                 suma += i
         if suma == a:
             print(a, "Jest dobra")
-
 def cw11():
-    maximum = 10**5
+    maximum = 10**4
     for a in range(2,maximum+1):
         suma_a = 0
-        for i in range((a//2)+1,0,-1):
+        for i in range(int(sqrt(a)),0,-1):
             if a % i == 0:
+                if not(i == 1 or i == a):
+                    suma_a += a//i
                 suma_a += i
         suma_b = 0
-        for i in range((suma_a//2)+1,0,-1):
+        for i in range(int(sqrt(suma_a)),0,-1):
             if suma_a % i == 0:
+                if not(i == 1 or i == suma_a):
+                    suma_b += suma_a//i
                 suma_b += i
-        if suma_b == a and suma_a != a:
-            print(a, suma_a, "Są dobre ...") 
-    return "zakończono"
+        if suma_b == a and suma_a < a:
+            print(a, suma_a, "Są dobre ...")
 
 def cw12(a =60,b=30,c=105):
     return min(nwd(a,b),nwd(a,c),nwd(b,c))
@@ -243,4 +245,4 @@ def cw20():
         a_n,b_n = (a_n*b_n)**(0.5),(a_n+b_n)/2.0
     return b_n
 if __name__ == "__main__":
-    print(cw20())
+    print(cw10())
