@@ -1,0 +1,708 @@
+#!/bin/python3
+
+import os
+import sys
+
+#
+# Complete the blackWhiteTree function below.
+#
+
+#
+# For the weighted graph, <name>:
+#
+# 1. The number of nodes is <name>_nodes.
+# 2. The number of edges is <name>_edges.
+# 3. An edge exists between <name>_from[i] to <name>_to[i].
+#
+#
+
+class Vertex:
+    def __init__(self, id):
+        self.id = id
+        self.neighbours = []
+        self.visited = False
+        #self.color = -1 # black = 0, white = 1
+
+class Graph:
+    def __init__(self, size):
+        self.size = size
+        self.graph = [ Vertex(i) for i in range(size) ]
+
+    def add_edge(self, u, v):
+        self.graph[u].neighbours.append(self.graph[v])
+        self.graph[v].neighbours.append(self.graph[u])
+
+def get_color_division(graph):
+    def DFSVisit(vert, color): # color is equal 0 or 1
+        vert.visited = True
+        get_color_division.color_count[color] += 1
+
+        for neigh in vert.neighbours:
+            if not neigh.visited:
+                DFSVisit(neigh, 1 - color)
+
+    color_division = []
+    get_color_division.color_count = [0, 0]
+
+    for vert in graph:
+        if not vert.visited:
+            get_color_division.color_count = [0, 0]
+
+            DFSVisit(vert, 0)
+
+            color_division.append([get_color_division.color_count[0], get_color_division.color_count[1]])
+
+    return color_division
+
+def blackWhiteTree(g_nodes, g_from, g_to):
+    graph = Graph(g_nodes)
+
+    for i in range(len(g_from)):
+        graph.add_edge(g_from[i] - 1, g_to[i] - 1)
+
+    color_division = get_color_division(graph.graph)
+    
+    K = len(color_division) - 1
+
+    # how to distribute so the diff of the sums is minimal??
+    # O(n*sum) below
+
+    nums = [ abs(color_division[i][0] - color_division[i][1]) for i in range(K + 1)]
+
+    sum_nums = max(nums) + 1
+
+    dp = [ [ False for i in range(sum_nums) ] for j in range(len(nums)) ]
+
+    dp[0][nums[0]] = True
+
+    for idx_num in range(0, len(nums) - 1):
+        for idx_sum in range(0, sum_nums):
+            if dp[idx_num][idx_sum]:
+                if idx_sum - nums[idx_num + 1] > 0:
+                    dp[idx_num + 1][idx_sum - nums[idx_num + 1]] = True
+                if idx_sum + nums[idx_num + 1] < sum_nums + 1:
+                    dp[idx_num + 1][idx_sum + nums[idx_num + 1]] = True
+
+    difference = 0
+
+    for i in range(len(dp[len(nums) - 1])):
+        if dp[len(nums) - 1][i]:
+            difference = i
+            break
+
+    
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    g_nodes, g_edges = map(int, input().split())
+
+    g_from = [0] * g_edges
+    g_to = [0] * g_edges
+
+    for g_itr in range(g_edges):
+        g_from[g_itr], g_to[g_itr] = map(int, input().split())
+
+    result = blackWhiteTree(g_nodes, g_from, g_to)
+
+    fptr.write(' '.join(map(str, result)))
+    fptr.write('\n')
+
+    fptr.close()
+
+---EOF---
+\documentclass{beamer}
+
+\usetheme{CambridgeUS}
+
+\usepackage[T1]{fontenc}
+\usepackage[polish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{amssymb}
+
+\AtBeginSection[]
+{
+    \begin{frame}{table of contents}
+        \tableofcontents
+    \end{frame}
+}
+
+\title{Szeregi Fouriera}
+\subtitle{Zadanie 5}
+\author{Mykola Haltiuk}
+\institute{MA2 - CS - AGH UST}
+\date{April 2020}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}{Treść zadania}
+    Rozwiń w szereg Fouriera funkcję $f(x) = x$ w $(-\pi; \pi)$. A następnie oblicz sumę szeregu liczbowego $\sum_{n=1}^{\infty} \frac{(-1)^n}{2n+1}$
+\end{frame}
+
+\begin{frame}{Z czego będziemy korzystali?}
+
+    \begin{alertblock}{Definicja}
+        Szeregu trygonometrycznego Fouriera funkcji $f(x)$
+    \end{alertblock}
+
+    \begin{alertblock}{Definicja}
+        Warunki Dirichleta
+    \end{alertblock}
+
+    \begin{block}{Twierdzenie}
+        Dirichleta, a szczególniej $\downarrow$
+    \end{block}
+
+    \begin{block}{Twierdzenie}
+        O rozwijaniu funkcji nieparzystej w szereg trygonometryczny Fouriera
+    \end{block}
+
+\end{frame}
+
+\begin{frame}{Definicja szeregu trygonometrycznego Fouriera}
+    Szeregiem trygonometrycznym Fouriera funkcji $f$ na $L^2 [-\pi,\pi]$ nazywamy szereg \newline
+    \[ \frac{a_0}{2} + \sum_{n=1}^{\infty} (a_n\cos(nx) + b_n\sin(nx)), gdzie \]
+
+    \[ a_0 = \frac{1}{\pi}\int\limits_{-\pi}^{\pi}f(x)dx \]    
+    \[ a_n = \frac{1}{\pi}\int\limits_{-\pi}^{\pi}f(x)cos(x)dx \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\, b_n = \frac{1}{\pi}\int\limits_{-\pi}^{\pi}f(x)sin(x)dx \]
+\end{frame}
+
+\begin{frame}{Warunki Dirichleta}
+    Mówimy, że funkcja $f$ spełnia warunki Dirichleta na $[a, b] \Leftrightarrow$
+    \begin{enumerate}[1]
+        \item $f$ jest ograniczona na $[a, b]$
+        \item $f$ jest przedziałami monotoniczna
+        \item $f$ jest ciągła na $[a, b]$ poza co najwyżej skończoną liczbę punktów nieciągłości $x_0$, w których zachodzi \[ f(x_0) = \frac{1}{2}(\lim_{x \to x_0^-}f(x) + \lim_{x \to x_0^+ }f(x)\,), \,\,\,\,\,\,\, x_0 \in (a, b) \]
+        \item $ f(a) = f(b) = \frac{1}{2}(\lim_{x \to a^+}f(x) + \lim_{x \to b^-}f(x)\,)$
+    \end{enumerate}
+    
+\end{frame}
+
+\begin{frame}{Twierdzenie Dirichleta}
+    \begin{columns}
+        \column{0.05\textwidth} Z:\vspace{0pt} T: \vspace{29pt} 
+        \column{0.95\textwidth} $f$ spełnia warunki Dirichleta na $[-\pi, \pi]$
+        Szereg $\frac{a_0}{2} + \sum_{n=1}^{\infty} (a_n\cos(nx) + b_n\sin(nx))$ jest zbięzny punktowo do funkcji $f$ na $[-\pi, \pi]$ \newline
+        $\left( \forall x \in [-\pi, \pi]\,\,\, f(x) = \frac{a_0}{2} + \sum_{n=1}^{\infty} (a_n\cos(nx) + b_n\sin(nx))  \right)$
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Twierdzenie o rozwijaniu funkcji nieparzystej}
+    \begin{columns}
+        \column{0.05\textwidth} Z:\vspace{19pt} T: \vspace{10pt}
+            
+        \column{0.95\textwidth} $f$ spełnia warunki Dirichleta na $[-\pi, \pi]$ \newline
+        $f$ jest nieparzysta na $[-\pi, \pi]$\newline
+        $\forall x \in [-\pi, \pi]\,\,\,\,\,\,\, f(x) = \sum_{n=1}^{\infty} b_n\sin(nx)\,\,\,\,\,\,\,b_n = \frac{2}{\pi}\int\limits_0^{\pi}f(x)\sin(nx)dx$
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Rozwijanie w szereg Fouriera}
+    Sprawd\'zmy czy $f(x)$ spełnia warunki Dirichleta na $(-\pi, \pi)$:
+    \begin{enumerate}[1]
+        \item $f(x)$ jest ograniczona na $(-\pi, \pi)$: z dołu $-\pi$, z góry $\pi$
+        \item $f(x)$ jest rosnąca na $(-\pi, \pi)$
+        \item $f(x)$ jest ciągła na $(-\pi, \pi)$
+        \item $f(\pi) = f(-\pi) = \frac{\lim_{x \to -\pi^+}f(x) + \lim_{x \to \pi^-}f(x)}{2} = \frac{-\pi + \pi}{2} = 0$
+    \end{enumerate}
+    Jeszcze udowodnimy, że $f(x)$ jest nieparzysta
+    \[ f(x) = x\,\,\,\,\,\, f(-x) = -x = -f(x)\]
+\end{frame}
+
+\begin{frame}
+    Korzystamy z twierdzenia o rozwijaniu funkcji nieparzystej w szereg trygonometryczny Fouriera
+    \[  \forall x \in (-\pi, \pi)\,\,\,\,\,f(x) = \sum_{n=1}^{\infty}b_n\sin(nx)\,\,\,\,\,b_n = \frac{2}{\pi}\int\limits_0^{\pi}f(x)\sin(nx)dx  \]
+    
+    \[  b_n = \frac{2}{\pi}\int\limits_0^{\pi}x\sin(nx)dx  \]
+\end{frame}
+
+\begin{frame}
+    $\int x\sin(nx)dx =$ \Bigg| 
+    \begin{tabular}{cc}
+    
+        $u = x$ & $u' = 1$ \\
+        $v' = \sin(nx)$ & $v = -\frac{1}{n}\cos(nx)$ 
+    \end{tabular}    
+    \Bigg|
+    
+    $= -\frac{x}{n}\cos(nx) + \frac{1}{n}\int cos(nx)dx = -\frac{x}{n}\cos(nx) + \frac{1}{n^2}\sin(nx) + c$\vspace{15pt}
+    
+    $\int\limits_0^{\pi}x\sin(nx)dx = \Big[ -\frac{x}{n}\cos(nx) + \frac{1}{n^2}\sin(nx) \Big]_0^{\pi} = -\frac{\pi}{n}\cos(n{\pi}) + \frac{1}{n^2}\sin(n{\pi}) + \frac{0}{\pi}\cos0 - \frac{1}{n^2}\sin0 = -\frac{\pi}{n}(-1)^n$\vspace{15pt}
+    
+    $b_n = \frac{2}{\pi}\big( -\frac{\pi}{n} \big) (-1)^n = \frac{(-1)^{n+1}2}{n}$\vspace{15pt}
+    
+    $f(x) = \sum_{n = 1}^{\infty} \frac{(-1)^{n + 1}2}{n}\sin(nx)$
+        
+\end{frame}
+
+\begin{frame}
+    Funkcja $f(x) = x$ rozwija się w szereg trygonometryczny Fouriera
+    \[ \sum_{n = 1}^{\infty} (-1)^{n + 1}\frac{2}{n}\sin(nx) \]
+\end{frame}
+
+\begin{frame}{Suma szeregu liczbowego}
+    Rozwiązać szereg liczbowy
+    \[ \sum_{n = 1}^{\infty} \frac{(-1)^n}{2n + 1} \]
+    Żeby dostać $2n + 1$ w mianowniku, to każdy drugi składnik musi zerować się, bo inaczej tracimy parzyste składniki. Dla $\sin(nx)$ każdy drugi zeruje się tylko przy $x = \frac{\pi}{2}$, więc rozpatrzymy to
+    \[ \frac{\pi}{2} = \sum_{n=1}^{\infty}\frac{(-1)^{n + 1}2}{n}\sin(n\frac{\pi}{2}),\,\,\, \sin(n\frac{\pi}{2}) = 0,\,\,\,dla\,n = 2k \]
+\end{frame}
+
+\begin{frame}
+    Więc zróbmy dla $n = 2k + 1$, $k \in \mathbb{N} \cup \{0\}$\vspace{15pt}
+    \[ \frac{\pi}{2} = \sum_{k = 0}^{\infty}\frac{(-1)^{2k + 2} 2}{2k + 1}\sin((2k + 1)\frac{\pi}{2}) = \sum_{k = 0}^{\infty}\frac{2}{2k + 1}(-1)^k = \]
+    
+    \[ = \sum_{k = 0}^{\infty}\frac{(-1)^k 2}{2k + 1} = 2\sum_{k = 0}^{\infty}\frac{(-1)^k}{2k + 1} \rightarrow\]
+    
+    \[ \frac{\pi}{4} = \sum_{k = 0}^{\infty}\frac{(-1)^k}{2k + 1} \rightarrow\]
+    
+    \[ \sum_{k = 1}^{\infty}\frac{(-1)^k}{2k + 1} = \frac{\pi}{4} - \frac{(-1)^0}{0 + 1} = \frac{\pi}{4} - 1 \]
+\end{frame}
+
+\begin{frame}{Wyniki}
+    \begin{columns}
+        \column{0.8\textwidth}
+        \[ f(x) = x = \sum_{n = 1}^{\infty} (-1)^{n + 1}\frac{2}{n}\sin(nx) \]
+        
+        \[ \sum_{n = 1}^{\infty}\frac{(-1)^n}{2n + 1} = \frac{\pi}{4} - 1 \]
+        \column{0.2\textwidth}
+        \[\big( -\pi, \pi\ \big)\]
+    \end{columns}
+\end{frame}
+
+\end{document}
+
+---EOF---
+https://github.com/Goader/object_labs/tree/master/lab01/src
+---EOF---
+USE Northwind
+
+-------------------- 28 slide --------------------
+SELECT CompanyName, Address FROM Customers
+SELECT LastName, HomePhone FROM Employees
+SELECT ProductName, UnitPrice FROM Products
+SELECT CategoryName, Description FROM Categories
+SELECT CompanyName, HomePage FROM Suppliers
+
+-------------------- 33 slide --------------------
+SELECT CompanyName, Address
+FROM Customers
+WHERE Customers.City = 'London'
+
+SELECT CompanyName, Address
+FROM Customers
+WHERE Country = 'France' OR Country = 'Spain'
+
+SELECT ProductName, UnitPrice
+FROM Products
+WHERE UnitPrice BETWEEN 20 AND 30
+
+SELECT ProductName, UnitPrice
+FROM Products
+WHERE Products.CategoryID IN (
+    SELECT ProductID
+    FROM Categories
+    WHERE CategoryName LIKE '%Meat%'
+    )
+
+SELECT ProductName, UnitsInStock, UnitsOnOrder
+FROM Products
+WHERE Products.SupplierID IN (
+    SELECT SupplierID
+    FROM Suppliers
+    WHERE CompanyName = 'Tokyo Traders'
+    )
+
+SELECT ProductName
+FROM Products
+WHERE UnitsInStock = 0
+
+-------------------- 38 slide --------------------
+SELECT *
+FROM Products
+WHERE QuantityPerUnit LIKE '%bottle%'
+
+SELECT *
+FROM Employees
+WHERE LastName LIKE '[B-L]%'
+
+SELECT CategoryName
+FROM Categories
+WHERE Description LIKE '%,%'
+
+SELECT *
+FROM Customers
+WHERE CompanyName LIKE '%Store%'
+
+-------------------- 43 slide --------------------
+SELECT *
+FROM Products
+WHERE UnitPrice < 10 OR UnitPrice > 20
+
+SELECT ProductName, UnitPrice
+FROM Products
+WHERE UnitPrice BETWEEN 20 AND 30
+
+-------------------- 44 slide --------------------
+SELECT CompanyName, Country
+FROM Customers
+WHERE Country = 'Japan' OR Country = 'Italy'
+
+-------------------- 47 slide --------------------
+SELECT OrderID, OrderDate, CustomerID
+FROM Orders
+WHERE ShippedDate IS NULL AND ShipCountry = 'Argentina'
+
+-------------------- 52 slide --------------------
+SELECT CompanyName, Country
+FROM Customers
+ORDER BY Country, CompanyName
+
+SELECT CategoryID, ProductName, UnitPrice
+FROM Products
+ORDER BY CategoryID, UnitPrice DESC
+
+SELECT CompanyName, Country
+FROM Customers
+WHERE Country IN ('Japan', 'Italy')
+ORDER BY Country, CompanyName
+
+-------------------- 59 slide --------------------
+SELECT Quantity * UnitPrice * (1 - Discount) AS [Total Price]
+FROM [Order Details]
+WHERE OrderID = 10250
+
+SELECT Phone + ', ' + Fax AS [Contact Info]
+FROM Suppliers
+
+---EOF---
+%matplotlib notebook
+
+dataset1 = (np.random.random((10**5, 2)) - 0.5) * 2000
+
+Plot([PointsCollection(dataset1)]).draw()
+
+
+%matplotlib notebook
+
+dataset2 = (np.random.random((10**5, 2)) - 0.5) * np.int64(2 * 10**14)
+
+Plot([PointsCollection(dataset2)]).draw()
+
+
+
+%matplotlib notebook
+
+# dists = np.random.random(1000) * 100
+r = 100
+angles = np.random.random(1000) * 2 * np.pi
+dataset3 = np.zeros((1000, 2))
+# dataset3[:, 0] = np.multiply(np.sin(angles), dists)
+# dataset3[:, 1] = np.multiply(np.cos(angles), dists)
+dataset3[:, 0] = np.sin(angles) * r
+dataset3[:, 1] = np.cos(angles) * r
+
+Plot([PointsCollection(dataset3)]).draw()
+
+
+
+%matplotlib notebook
+
+a = np.random.random() - 1
+b = np.random.random() * 0.9 + 0.1
+k = b / a
+maxX = min(abs(1000 / k), 1000)
+dataset4 = np.zeros((1000, 2))
+dataset4[:, 0] = (np.random.random(1000) - 0.5) * 2 * maxX
+dataset4[:, 1] = dataset4[:, 0] * k
+
+Plot([PointsCollection(dataset4)]).draw()
+---EOF---
+Faculty in Computer Science, Electronics and Telecommunications 
+Computer Science
+
+I like logic, algorithms and data structures. That is the bunch I would like to use in my work, so I am thinking of Machine Learning Developer. 
+
+I’ve seen some possibilities of immigration to the USA. And I think it’s an amazing opportunity to become a better specialist. 
+
+I suppose, I will get Ph.D. after immigration and of course after gathering an inspiring amount of money for education.
+
+Of course, as every other programmer, I would like to create my own product, because in case of its success you have no limits in developing and growing. And I noticed one thing long time ago. Many people have awesome ideas, but they don’t have enough skills to realize them. Simple example: somebody hears a song, and thinks that it would be a great thing to have an app, that could find what the song it is. “Somebody” is not a programmer and have no relation to programming, so this idea dies as soon as it comes. But what if someone heard it and realized. Maybe that’s the way Shazam was created. So I try to use it and ask all my friends for their ideas. Who knows, maybe someone has a fantastic one, but does not understand it.
+
+So after all, it is working as a Maching Learning Developer and being open for new opportunities and ideas :)
+
+When it comes to dreaming, I would like to start with a license-selling oriented product. It is less risky, because most of physical production ends up with marketing defeat and has lots of consequences in financial background. After stable fundamental product it is much easier to develop your company.
+
+---EOF---
+#include <bits/stdc++.h>
+#define MOD 1000000007
+
+using namespace std;
+
+int perm(int k) {
+    int res = 1;
+    while (k) {
+        res *= k;
+        res %= MOD;
+        k--;
+    }
+    return res;
+}
+
+void ways(int n, int count, int len, int step, int &res) {
+    if (count == n) {
+        res = (res + perm(len)) % MOD;
+        return;
+    }
+    while (step) {
+        if (count + step <= n) {
+            ways(n, count + step, len + 1, )
+        }
+        step--;
+    }
+}
+
+// Complete the stepPerms function below.
+int stepPerms(int n) {
+
+}
+
+int main()
+{
+    ofstream fout(getenv("OUTPUT_PATH"));
+
+    int s;
+    cin >> s;
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+    for (int s_itr = 0; s_itr < s; s_itr++) {
+        int n;
+        cin >> n;
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+        int res = stepPerms(n);
+
+        fout << res << "\n";
+    }
+
+    fout.close();
+
+    return 0;
+}
+
+---EOF---
+bit python:
+typing
+string
+---EOF---
+def partition(f):
+    if f == None or f.next == None: #jeżeli mamy 0 lub 1 element, to już nie trzeba dzielić
+        return f, f
+    less = Node()
+    less_last = None
+    ltmp = less
+    more = Node()
+    more_last = None
+    mtmp = more
+    equal = Node()
+    equal_last = None
+    eqtmp = equal
+    pivot = f.val
+# tworzymy listy z wartownikami dla mniejszych, większych i rownych elementów
+    while(f != None): # dzielimy elementy po tych listach
+        if f.val < pivot:
+            ltmp.next = f
+            ltmp = ltmp.next
+        elif f.val > pivot:
+            mtmp.next = f
+            mtmp = mtmp.next
+        else:
+            eqtmp.next = f
+            eqtmp = eqtmp.next
+        f = f.next
+    ltmp.next = mtmp.next = eqtmp.next = None # zamykamy listy w końcu, bo mogli wskazywać na coś jeszcze, ponieważ po prostu łączyliśmy
+    equal_last = eqtmp
+    less, less_last = partition(less.next) # teraz dzielimy liczby mniejsze i większe, równych nie trzeba, bo i tak są równe
+    more, more_last = partition(more.next)
+ 
+    #łaczymy z końca, równe łaczymy do większych
+    equal_last.next = more # jak większych nie będzie, to przypiszemy None, bo partition od None zwróci None
+    if less == None and more_last != None: # jak nie było by mniejszych liczb, to zmieni się pierwszy element, więc trzeba uwzględnić to jako szczególny przypadek, i zwrócić pierwszy element równych
+        return equal.next, more_last
+    if less == None and more_last == None:
+        return equal.next, equal_last
+    less_last.next = equal.next # łaczymy do mniejszych już połączone równe i większe
+    
+    if more_last != None:
+        return less, more_last
+    return less, equal_last
+ 
+ 
+def quicker_sort(L):
+    return partition(L[0]) # zwracamy tuplę
+
+---EOF---
+-- DROP TABLE employee;
+
+CREATE PROCEDURE sum_sales()
+BEGIN
+    SELECT works_with.emp_id, SUM(works_with.total_sales) AS sales
+    FROM works_with
+    GROUP BY works_with.emp_id;
+END;
+
+DROP PROCEDURE sum_sales;
+
+CALL sum_sales();
+
+SELECT employee.emp_id, employee.first_name AS name, employee.last_name AS surname, employee.salary, sum_sales().sales, sum_sales().sales - employee.salary AS made_income
+FROM employee
+JOIN sum_sales() ON sum_sales().emp_id = employee.emp_id
+-- GROUP BY employee.emp_id
+;
+
+SELECT employee.emp_id, CONCAT(employee.first_name, ' ', employee.last_name) AS name, employee.salary, SUM(works_with.total_sales) AS sales, SUM(works_with.total_sales) - employee.salary AS made_income
+FROM employee
+JOIN works_with ON employee.emp_id = works_with.emp_id
+GROUP BY works_with.emp_id;
+
+SELECT CONCAT(employee.first_name, ' ', employee.last_name)
+FROM employee
+JOIN works_with ON employee.emp_id = works_with.emp_id
+WHERE works_with.total_sales > 30000
+GROUP BY works_with.emp_id;
+
+SELECT client.client_name
+FROM client
+WHERE client.branch_id = (
+    SELECT employee.branch_id
+    FROM employee
+    WHERE emp_id = 102
+    );
+
+CREATE TABLE employee (
+  emp_id INT PRIMARY KEY,
+  first_name VARCHAR(40),
+  last_name VARCHAR(40),
+  birth_day DATE,
+  sex VARCHAR(1),
+  salary INT,
+  super_id INT,
+  branch_id INT
+);
+
+CREATE TABLE branch (
+  branch_id INT PRIMARY KEY,
+  branch_name VARCHAR(40),
+  mgr_id INT,
+  mgr_start_date DATE,
+  FOREIGN KEY(mgr_id) REFERENCES employee(emp_id) ON DELETE SET NULL
+);
+
+ALTER TABLE employee
+ADD FOREIGN KEY(branch_id)
+REFERENCES branch(branch_id)
+ON DELETE SET NULL;
+
+ALTER TABLE employee
+ADD FOREIGN KEY(super_id)
+REFERENCES employee(emp_id)
+ON DELETE SET NULL;
+
+CREATE TABLE client (
+  client_id INT PRIMARY KEY,
+  client_name VARCHAR(40),
+  branch_id INT,
+  FOREIGN KEY(branch_id) REFERENCES branch(branch_id) ON DELETE SET NULL
+);
+
+CREATE TABLE works_with (
+  emp_id INT,
+  client_id INT,
+  total_sales INT,
+  PRIMARY KEY(emp_id, client_id),
+  FOREIGN KEY(emp_id) REFERENCES employee(emp_id) ON DELETE CASCADE,
+  FOREIGN KEY(client_id) REFERENCES client(client_id) ON DELETE CASCADE
+);
+
+CREATE TABLE branch_supplier (
+  branch_id INT,
+  supplier_name VARCHAR(40),
+  supply_type VARCHAR(40),
+  PRIMARY KEY(branch_id, supplier_name),
+  FOREIGN KEY(branch_id) REFERENCES branch(branch_id) ON DELETE CASCADE
+);
+
+
+-- -----------------------------------------------------------------------------
+
+-- Corporate
+INSERT INTO employee VALUES(100, 'David', 'Wallace', '1967-11-17', 'M', 250000, NULL, NULL);
+
+INSERT INTO branch VALUES(1, 'Corporate', 100, '2006-02-09');
+
+UPDATE employee
+SET branch_id = 1
+WHERE emp_id = 100;
+
+INSERT INTO employee VALUES(101, 'Jan', 'Levinson', '1961-05-11', 'F', 110000, 100, 1);
+
+-- Scranton
+INSERT INTO employee VALUES(102, 'Michael', 'Scott', '1964-03-15', 'M', 75000, 100, NULL);
+
+INSERT INTO branch VALUES(2, 'Scranton', 102, '1992-04-06');
+
+UPDATE employee
+SET branch_id = 2
+WHERE emp_id = 102;
+
+INSERT INTO employee VALUES(103, 'Angela', 'Martin', '1971-06-25', 'F', 63000, 102, 2);
+INSERT INTO employee VALUES(104, 'Kelly', 'Kapoor', '1980-02-05', 'F', 55000, 102, 2);
+INSERT INTO employee VALUES(105, 'Stanley', 'Hudson', '1958-02-19', 'M', 69000, 102, 2);
+
+-- Stamford
+INSERT INTO employee VALUES(106, 'Josh', 'Porter', '1969-09-05', 'M', 78000, 100, NULL);
+
+INSERT INTO branch VALUES(3, 'Stamford', 106, '1998-02-13');
+
+UPDATE employee
+SET branch_id = 3
+WHERE emp_id = 106;
+
+INSERT INTO employee VALUES(107, 'Andy', 'Bernard', '1973-07-22', 'M', 65000, 106, 3);
+INSERT INTO employee VALUES(108, 'Jim', 'Halpert', '1978-10-01', 'M', 71000, 106, 3);
+
+
+-- BRANCH SUPPLIER
+INSERT INTO branch_supplier VALUES(2, 'Hammer Mill', 'Paper');
+INSERT INTO branch_supplier VALUES(2, 'Uni-ball', 'Writing Utensils');
+INSERT INTO branch_supplier VALUES(3, 'Patriot Paper', 'Paper');
+INSERT INTO branch_supplier VALUES(2, 'J.T. Forms & Labels', 'Custom Forms');
+INSERT INTO branch_supplier VALUES(3, 'Uni-ball', 'Writing Utensils');
+INSERT INTO branch_supplier VALUES(3, 'Hammer Mill', 'Paper');
+INSERT INTO branch_supplier VALUES(3, 'Stamford Lables', 'Custom Forms');
+
+-- CLIENT
+INSERT INTO client VALUES(400, 'Dunmore Highschool', 2);
+INSERT INTO client VALUES(401, 'Lackawana Country', 2);
+INSERT INTO client VALUES(402, 'FedEx', 3);
+INSERT INTO client VALUES(403, 'John Daly Law, LLC', 3);
+INSERT INTO client VALUES(404, 'Scranton Whitepages', 2);
+INSERT INTO client VALUES(405, 'Times Newspaper', 3);
+INSERT INTO client VALUES(406, 'FedEx', 2);
+
+-- WORKS_WITH
+INSERT INTO works_with VALUES(105, 400, 55000);
+INSERT INTO works_with VALUES(102, 401, 267000);
+INSERT INTO works_with VALUES(108, 402, 22500);
+INSERT INTO works_with VALUES(107, 403, 5000);
+INSERT INTO works_with VALUES(108, 403, 12000);
+INSERT INTO works_with VALUES(105, 404, 33000);
+INSERT INTO works_with VALUES(107, 405, 26000);
+INSERT INTO works_with VALUES(102, 406, 15000);
+INSERT INTO works_with VALUES(105, 406, 130000);
+
+---EOF---
