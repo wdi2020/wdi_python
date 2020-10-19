@@ -1,31 +1,78 @@
-def cw16(num1,num2):
-    count = 0
-    count += rekurencja(num1,num2,1,"")
-    count += rekurencja(num1,num2,2,"") 
-    return count
+#10**6
+def czy_pierwsza(num):
+    if num == 1:
+        return False
+    if num == 2:
+        return True
+    if num %2 == 0:
+        return False
+    i = 3
+    while i*i <= num:
+        if num%i == 0:
+            return False
+        i+=2
+    return True
 
-def rekurencja(num1,num2,index,new:str):
-    count = 0
-    new = new + str(num1%10) if index ==1 else str(num2%10)
-    if index==1:
-        num1//=10
-    else:
-        num2//=10
-    if num1 != 0:
-        count += rekurencja(num1,num2,1,new)
-    if num2 != 0:
-        count += rekurencja(num1,num2,2,new)
-    if num1 == 0 and num2 == 0:
-        final_num = int(new)
-        i = 3
-        if final_num %2 == 0:
-            return count
-        while i*i < final_num:
-            if final_num%i == 0:
-                return count
-            i += 2
-        return count + 1
-    return count
+def get_dzielnik_suma(num):
+    suma = 0
+    if num % 2 ==0:
+        while num % 2 == 0:
+            suma += 2
+            num //= 2
+    if num %3 == 0:
+        while num %3 == 0:
+            suma += 3
+            num //= 3
+    if czy_pierwsza(num):
+        return num
+    i = (num//2)+1 
+    while num > 1 and i >1:
+        if num %i == 0:
+            if czy_pierwsza(i):
 
+                copy = i
+                if copy < 10:
+                    suma += copy
+                else:
+                    while copy != 0:
+                        suma += copy%10
+                        copy//=10
+            else:
+                suma += get_dzielnik_suma(i)
+
+            if czy_pierwsza(num // i):
+                
+                copy = num // i
+                if copy < 10:
+                    suma += copy
+                else:
+                    while copy != 0:
+                        suma += copy%10
+                        copy//=10
+
+            else:
+                suma += get_dzielnik_suma(num//i)
+            break
+        i -= 1
+
+    return suma
+            
+    
+def cw16(parameter):
+    i = 4
+    while i <= parameter:
+        suma_cyfr = 0
+        copy = i
+        while copy > 0:
+            suma_cyfr += copy%10
+            copy //= 10
+        if not czy_pierwsza(i):
+            if get_dzielnik_suma(i) == suma_cyfr:
+                print(i) 
+        i += 1
+
+from time import time
 if __name__ == "__main__":
-    print(cw16(12345,876543))
+    start = time()
+    print(cw16(10000))
+    print(time() - start)

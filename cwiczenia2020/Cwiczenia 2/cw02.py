@@ -1,19 +1,17 @@
-def wielokrotnosc():
-    szukana = int(input("Podaj liczbe naturalna uzywajac klawiatury a ja odpowiem czy jest wielokrotnoscia dowolnego wyrazu ciagu danego wzorem..."))
-    
-    n = 1
-    wyraz_ciagu = (n*n)+n+1
-
-    while wyraz_ciagu < szukana:
-        mnoznik = 2
-        while wyraz_ciagu * mnoznik < szukana:
-            mnoznik += 1
-        #end while
-        if wyraz_ciagu * mnoznik == szukana:
-            return True
-        n += 1
-        wyraz_ciagu = (n*n)+n+1
-    return False
-
+#cw 2
 if __name__ == "__main__":
-    print(wielokrotnosc())
+    a = 6
+    b = 7
+    n  = 100
+    print(a//b, end="")
+    a = a%b
+    print(".",end="")
+    while n >0:
+        if a < b:
+            a *= 10
+            print(a//b, end="")
+            a = a%b
+        else:
+            print(a//b,end="")
+            a = a%b
+        n-= 1

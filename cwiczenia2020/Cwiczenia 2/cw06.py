@@ -1,34 +1,20 @@
-def cw6(number):
-    counter = 1
-    num = number
-    while num > 10:
-        counter += 1
-        num = num // 10
-    print(counter)
-    while counter != 0:
-        rekurencja(number,counter)
-        counter-=1
-
-        
-def rekurencja(number, counter):
-    num = number
-    num_after = num//10**counter
-    num_after *= 10**(counter-1)
-    num = num%10**(counter-1)
-    num = num + num_after
-    if num % 7 == 0:
-        print(num)
-    copy = num
-    counter_new = 1
-    while num > 10:
-        counter_new += 1
-        num = num // 10
-    if counter_new == 1:
-        return False
-    while counter_new > counter:
-        rekurencja(copy,counter_new)
-        counter_new-=1
-
-
 if __name__ == "__main__":
-    cw6(2315)
+    num = int(input("Podaj liczbe, mordo ale nie wpisuj dla beki liter plz: "))
+    i = 3
+    a=num
+    b=1
+    min_roznica = num
+
+    if num % 2 == 0 and abs(2 - (num//2)) < min_roznica:
+        a = 2
+        b = num//2
+        min_roznica = abs(2 - (num//2))
+
+    while i*i < num:
+        if num % i == 0 and abs(i - (num//i)) < min_roznica:
+            a = i
+            b = num//i
+            min_roznica = abs(i - (num//i))
+        i+= 2
+    print(a,b)
+

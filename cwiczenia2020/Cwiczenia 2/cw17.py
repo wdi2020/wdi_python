@@ -1,15 +1,14 @@
-def cw17(N):
-    N -= 1
-    liczba = 10**N
-    while liczba < 10**(N+1):
-        suma = 0
-        copy = liczba
-        while copy > 0:
-            suma += (copy%10)**(N+1)
-            copy//=10
-        if liczba == suma:
-            print(liczba)
-        liczba += 1
-
+#cw 17
+from math import log
+def funkcja(x : int):
+    return x - ((x**x) -2020)/(((x**x)*log(x)) + (x**x))
+def cw17():
+    e = 1
+    old = 0
+    a = 1
+    a = funkcja(a)
+    while abs(a-old) > e:
+        old,a = a,funkcja(a)
+    print(a)
 if __name__ == "__main__":
-    cw17(6)
+    cw17()

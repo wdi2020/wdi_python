@@ -1,16 +1,16 @@
+#ehe cw 11
 def cw11():
-    num = int(input('Spierdalaj dwulicowa szmato.. Chcesz coś z avonu?: '))
-    a1 = 2
-    a2 = (3*a1)+1
-    while a1 <= num:
-        mnoznik = 1
-        while a1*mnoznik < num:
-            mnoznik += 1
-        
-        if a1*mnoznik == num: return True
-        a1,a2 = a2,(3*a1)+1
-    return False
+    num = int(input("Po co ci dual boot, kup drugiego laptopa z amso...: "))
+
+    a = 10
+    while num != 0:
+        temp = num%10
+        num = num //10 
+        if temp >= a:
+            return False
+        a = temp
+    return True
+
 
 if __name__ == "__main__":
     print(cw11())
-
