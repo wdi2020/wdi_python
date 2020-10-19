@@ -13,4 +13,4 @@ def get_text(nazwa):
 
 
 if __name__ == "__main__":
-    print(get_text("blackwhitetree"))
+    print(get_text("four"))
