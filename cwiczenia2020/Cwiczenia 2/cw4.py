@@ -15,4 +15,4 @@ def counter(N : int):
     return count 
 
 if __name__ == "__main__":
-    print(counter(1000))
+    print(counter(1_000_000))
