@@ -113,7 +113,7 @@ def cw8(liczba):
     return "nie"
 
 def cw9(liczba):
-    for i in range(liczba,0,-1):
+    for i in range(liczba//2,0,-1):
         if liczba % i == 0:
             print(i)
 
@@ -224,13 +224,14 @@ def cw18(A=125.0):
 
 def cw19():
     ret = 1.0
+    curr_silnia = 1
     for i in range(1,1000+1):
-        print(i)
-        ret += 1/silnia(i)
+        curr_silnia = curr_silnia * i
+        ret += 1/(curr_silnia)
     return ret
 def silnia(nr):
     ret = 1
-    for i in range(1,nr+1):
+    for i in range(2,nr+1):
         ret *= i
     return ret
 def cw20():
@@ -241,4 +242,4 @@ def cw20():
         a_n,b_n = (a_n*b_n)**(0.5),(a_n+b_n)/2.0
     return b_n
 if __name__ == "__main__":
-    print(cw10())
+    print(cw19())
