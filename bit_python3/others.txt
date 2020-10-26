@@ -1,4 +1,0 @@
-B -> C, E, F
-C -> A, B, G, H, I, J
-D -> C
-E -> C, I, J
