@@ -5,8 +5,8 @@ a = 1
 sil = 1
 t = [0 for i in range(10000)]
 t[0] = 1
-kon = 0
-while kon == 0:
+kon = False
+while not kon:
     sil *= a
     n = 1
     licz = 0
@@ -14,7 +14,7 @@ while kon == 0:
         if (n//sil) % 10 == 0:
             licz += 1
         if licz - 3 == N:
-            kon = 1
+            kon = True
         t[x] += (n//sil) % 10
         n *= 10
         if t[x] > 9:
