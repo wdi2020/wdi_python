@@ -24,3 +24,4 @@ while not kon:
 print(t[0], end='.')
 for x in range(1, N+1):
     print(t[x], end="")
+
