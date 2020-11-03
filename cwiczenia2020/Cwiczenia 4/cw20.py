@@ -42,7 +42,6 @@ def cw20(t,N):
                 max_row = sumy_row[i]-t[i][j]
             j+=1
         i+=1
-
     return (x,y),(x2,y2)
 
 from random import randint
