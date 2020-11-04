@@ -1,6 +1,6 @@
 #ehe cw 11
 def cw11():
-    num = int(input("Po co ci dual boot, kup drugiego laptopa z amso...: "))
+    num = int(input(">: "))
 
     a = 10
     while num != 0:

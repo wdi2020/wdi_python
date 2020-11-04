@@ -28,7 +28,7 @@ def cw20(a,b):
             return("jest taka ze " + str(i))
         i+= 1
     #end while
-    return "chuja nie dziala"
+    return "falsea"
 #end def
 
 def getLiczba(num):

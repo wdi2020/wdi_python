@@ -1,4 +1,3 @@
-#trywialne zadanie ale gdyby było w iconie to oho
 def silnia(num : int):
     a= [0 for _ in range(10000)]
     a[0] = 1

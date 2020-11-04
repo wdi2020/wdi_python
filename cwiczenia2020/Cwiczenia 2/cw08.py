@@ -1,5 +1,5 @@
 if __name__ == "__main__":
-    num = int(input("Podaj te liczbe plz, kto z uj ten nie skacze hop hop hop: "))
+    num = int(input(">:"))
     while True:
         num += 1
         flag = False

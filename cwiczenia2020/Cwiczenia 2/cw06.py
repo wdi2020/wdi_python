@@ -1,5 +1,5 @@
 if __name__ == "__main__":
-    num = int(input("Podaj liczbe, mordo ale nie wpisuj dla beki liter plz: "))
+    num = int(input(">: "))
     i = 3
     a=num
     b=1

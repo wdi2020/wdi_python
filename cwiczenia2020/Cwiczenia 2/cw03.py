@@ -1,4 +1,3 @@
-# palindrom ehe
 def czy_jest_palindrom():
     liczba = int(input("Podaj liczbe..."))
     lsum = liczba

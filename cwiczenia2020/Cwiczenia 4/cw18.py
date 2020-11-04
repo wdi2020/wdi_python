@@ -1,3 +1,4 @@
+# nie dzilaaaa
 def func(t,MAX):
     max_podciag = 10
     max_sum = t[0][0]
@@ -49,4 +50,4 @@ from random import randint
 if __name__ == "__main__":
     #nie dziala dla <0 ale chuj w to
     MAX = 100
-    print(func([[1 for _ in range(MAX)] for _ in range(MAX)],MAX))
+    print(func([[-100 for _ in range(MAX)] for _ in range(MAX)],MAX))

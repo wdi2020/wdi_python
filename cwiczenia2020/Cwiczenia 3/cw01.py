@@ -1,7 +1,5 @@
 a = int(input("pdoaja liczbeadfa: "))
 podstawa = int(input("pdaj podsatwe: "))
-#nie dawac podstawy wiekszej od 10 bo ja nie znam stringow i przyps bo nie wiem jak sie dodaje stringi:((((((
-# żart jednak były stringi
 new_a = ""
 while a > 0:
     temp = a % podstawa

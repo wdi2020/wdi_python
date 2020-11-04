@@ -1,6 +1,6 @@
 
 def cw12():
-    liczba = int(input("Jezu kolejny dzien, kolejne zadania :( :"))
+    liczba = int(input("> :"))
     lenght = 0
 
     num = liczba

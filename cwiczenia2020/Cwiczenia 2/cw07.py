@@ -1,5 +1,5 @@
 def wielokrotnosc():
-    szukana = int(input("Podaj liczbe naturalna uzywajac klawiatury a ja odpowiem czy jest wielokrotnoscia dowolnego wyrazu ciagu danego wzorem..."))
+    szukana = int(input(">:"))
     
     n = 1
     wyraz_ciagu = (n*n)+n+1

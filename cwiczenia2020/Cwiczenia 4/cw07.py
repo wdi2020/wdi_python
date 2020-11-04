@@ -1,5 +1,3 @@
-#mozna wsm zrobic na 2 spsb jeden ze idzie po kolumnach po kolei i pozniej po wierszach i insert w odpowiednie miejsce,
-#albo tak pomyslec i isc po indexie 0 wpisywwac ten najwiekszy element do t2 i ususwac z t1 tego mi sie nei chce pzdr
 def cw07(MAX):
     t1 = [[i+(MAX*j) for i in range(MAX)] for j in range(MAX)]
     t2 = [-1 for _ in range(MAX*MAX)]

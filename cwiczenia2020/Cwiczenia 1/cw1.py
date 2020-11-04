@@ -1,4 +1,3 @@
-#Cw1 - proste programy z pętlami cz 1 ~~lpawlak
 from math import pi,sqrt
 
 def cw1():
@@ -172,11 +171,6 @@ def cw14():
         print(suma)
         n += 1 
 def cw15():
-    #no to tak: return_value to caly ciag
-    # value_of_ret_val_bef to jest poprzednia wartosc ciagu (do sprawdzenia w while )
-    # e to dokladnosc z jaka to ma byc
-    # value_before to jest poprzednia wartosc takie a(n-1) bo ten ciag to a_n =  sqrt(.5+.5(a_n-1)
-    # na koncu konwersja z tego ciagu na wartosc pi czyli 2/ ciag
     return_value = (0.5)**(0.5)
     value_of_ret_val_bef = 2
     value_before = (0.5)**(0.5)
@@ -205,7 +199,6 @@ def cw16():
 def cw16_rek(a_n):
     return (a_n%2)*(3*a_n + 1) + (1-a_n%2) *(a_n/2)
 def cw17(a = 1, b=1):
-    #hard to tell czy dziala
     a1,a2 = a,b
     iloraz_1, iloraz_2 = 1.0,10101010101010101010.0
     while abs(iloraz_1 - iloraz_2) > 0.00000000001:

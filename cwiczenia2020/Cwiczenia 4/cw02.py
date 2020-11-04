@@ -1,4 +1,3 @@
-#kompilacja w glowie bo komputery to przezytek
 def cw02(MAX, t):
     #row
     for i in range(MAX):

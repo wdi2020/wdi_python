@@ -4,7 +4,7 @@ def cw18():
     b0 = 2
     a2 = a1 - (b0 * a0)
     b1 = b0 + (2 * a1)
-    while int(input("nie da zadan ale bedzie wymagal na cwiczeniach")) == a0:
+    while int(input("h")) == a0:
         print(b0)
         a0,a1,b0,a2,b1 = a1,a2,b1,a1 - (b0 * a0),b0 + (2 * a1)
 

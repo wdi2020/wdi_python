@@ -1,6 +1,6 @@
 #cw 10
 def cw10():
-    num = int(input('Spierdalaj dwulicowa szmato.. Chcesz coś z avonu?: '))
+    num = int(input('>: '))
     a1 = 2
     a2 = (3*a1)+1
     while a1 <= num:

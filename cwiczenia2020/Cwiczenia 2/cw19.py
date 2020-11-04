@@ -1,8 +1,6 @@
 
 #by vicioo
 def ex19():
-#Zadanie 19. Napisac program wczytujacy dwie liczby naturalne a,b i wypisujacy rozwiniecie dziesietne
-#ułamka a/b w postaci ułamka okresowego. Na przykład 1/3 = 0.(3), 1/6 = 0.1(6), 1/7 = 0.(142857)
 
     a, b = map(int, input().split())
     first_a = -1
