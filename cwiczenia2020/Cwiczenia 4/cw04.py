@@ -13,6 +13,7 @@ def cw04(MAX,t):
             if temp > iloraz_max:
                 iloraz_max = temp
                 odp = (i,j)
+                
     return odp,iloraz_max
 
 if __name__ == "__main__":
