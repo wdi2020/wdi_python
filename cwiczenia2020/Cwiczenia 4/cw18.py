@@ -31,7 +31,7 @@ def func(t,MAX):
             #usuwanie
             copy_poziom = suma_poziom
             copy_pion = suma_pion
-            k = 0
+            k = j-il_pion+1
             while k<j:
                 #poziom
                 copy_poziom -= t[i][k]
@@ -48,6 +48,5 @@ def func(t,MAX):
 
 from random import randint
 if __name__ == "__main__":
-    #nie dziala dla <0 ale chuj w to
     MAX = 100
-    print(func([[-100 for _ in range(MAX)] for _ in range(MAX)],MAX))
+    print(func([[-10 for _ in range(MAX)] for _ in range(MAX)],MAX))

@@ -1,6 +1,6 @@
 from random import randint
-MAX = 10
-t1 = [[i+(j*MAX) for i in range(MAX)] for j in range(MAX)] 
+MAX =4 
+t1 = [[(j*MAX + i + 5) for i in range(MAX)] for j in range(MAX)] 
 t2 = [0 for _ in range(MAX*MAX)]
 
 
@@ -18,6 +18,7 @@ for i in range(MAX):
             if brek:
                 break
         else:
+            # insert and alter all
             for a in range(MAX*MAX):
                 if not (cop > t2[a] and t2[a] != 0):
                     h = a

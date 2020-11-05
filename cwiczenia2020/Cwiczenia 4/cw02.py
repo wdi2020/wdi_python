@@ -17,4 +17,3 @@ def cw02(MAX, t):
         if not is_there:
             return False
     return True
-
