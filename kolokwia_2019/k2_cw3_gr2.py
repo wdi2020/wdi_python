@@ -1,0 +1,3 @@
+#wskazniki :/
+def funck():
+    pass

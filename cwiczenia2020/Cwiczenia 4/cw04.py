@@ -16,7 +16,7 @@ def cw04(MAX,t):
         if row_sum[i] > row_max:
             row_max = row_sum[i]
             row_ind = i
-    return (col_ind,row_ind) , col_max/row_max 
+    return (col_ind,row_ind) , col_max/row_max
 
 if __name__ == "__main__":
     print(cw04(10,[[5 for _ in range(10)] for _ in range(10)]))

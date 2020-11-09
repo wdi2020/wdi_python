@@ -1,8 +1,6 @@
-
 def cw08(t1,MAX):
     #to maxtmalna dl ciagu
     c_amx = 0
-
     i = 0
     #max-3 bo dalsze indexy w kolumnach spowoduja niemozliwosci uzyskania ciagu o dl 3
     while i <= MAX-3:

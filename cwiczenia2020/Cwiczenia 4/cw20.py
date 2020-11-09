@@ -1,3 +1,4 @@
+#not even fcking working .....
 def cw20(t,N):
     sumy_col = [0 for _ in range(N)] 
     sumy_row = [0 for _ in range(N)] 
@@ -42,13 +43,16 @@ def cw20(t,N):
                 max_row = sumy_row[i]-t[i][j]
             j+=1
         i+=1
-    return (x,y),(x2,y2)
+    return (max_col + max_row),(x,y),(x2,y2)
 
 from random import randint
 if __name__ == "__main__":
     st =[[randint(1,2) for _ in range(8)] for _ in range(8)] 
     #w głowie działa
-    # st = [[999991,1,1,1],[2,0,0,0],[3,3,9,0],[1,5,121234,5]]
+    st = [[999991,1,1,1],[2,0,0,0],[3,3,9,0],[1,5,121234,5]]
+    st = [[2, 2, 1],[2, 1, 2],[2, 2, 2]]
+    st = [[0, 1, 1],[0, 1, 1],[1, 0, 1]]
+    st = [[1, 1, 0],[0, 0, 0],[0, 0, 0]]
     for i in st:
         print(i)
-    print(cw20(st,4))
+    print(cw20(st,len(st)))
