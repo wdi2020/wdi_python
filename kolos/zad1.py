@@ -32,8 +32,9 @@ while n>0:
         copy//=2
         ilosc_2-=1
     #end while
+
     if(wynik > 32657):
-        print("JAPIERDOLE")
+        print("wyszło poza zalres")
 
     wynik *= copy
 
