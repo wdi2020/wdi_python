@@ -1,6 +1,21 @@
-from random import randint
-MAX =4 
+#full legit z https://github.com/Viciooo/WDI_zestawy
+def GenTabOfRndGrowingInts(N,start,end):
+    from random import randint
+    t = [0]*N
+    tmp = start
+    for i in range(N):
+        start = tmp
+        t[i] = [0]*N
+        for j in range(N):
+            t[i][j] = randint(start,end)
+            start = t[i][j] + 1
+    return t
+#Tu moje 
+MAX =4
 t1 = [[(j*MAX + i + 5) for i in range(MAX)] for j in range(MAX)] 
+t1 = GenTabOfRndGrowingInts(MAX,0,1000)
+for i in t1:
+    print(i)
 t2 = [0 for _ in range(MAX*MAX)]
 
 
@@ -10,7 +25,7 @@ for i in range(MAX):
         for a in range(MAX):
             brek = False
             for b in range(MAX):
-                if cop <= t1[a][b]:
+                if cop < t1[a][b]:
                     break
                 if t1[a][b] == cop and not ((a == i) and (b == j)):
                     brek = True

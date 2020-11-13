@@ -1,5 +1,6 @@
 #not even fcking working .....
 def cw20(t,N):
+    r = 0
     sumy_col = [0 for _ in range(N)] 
     sumy_row = [0 for _ in range(N)] 
     i = 0
@@ -7,43 +8,34 @@ def cw20(t,N):
         j=0
         while j<N:
             sumy_col[j] += t[i][j]
-            sumy_row[i] += t[j][i]
+            sumy_row[i] += t[i][j]
             j+=1
         i+=1
-    max_col = 0
-    max_row = 0
-    x,y = 0,0
-    i = 1
-    while i<N:
-        j = 0
-        while j<N:
-            if sumy_col[j]-t[i][j] > max_col:
-                max_col = sumy_col[j]-t[i][j]
-                x=j
-            if sumy_row[i]-t[i][j] > max_row:
-                y=i
-                max_row = sumy_row[i]-t[i][j]
-            j+=1
-        i+=1
-    sumy_col[x] = t[y][x] 
-    sumy_row[y] = t[y][x] 
+    print(sumy_col,sumy_row)
+    max_sum = 0
+    x,y,x2,y2 = 0,0,0,0
+    for a in range(N):
+        for b in range(N):
+            copy_col = sumy_col.copy()
+            copy_row = sumy_row.copy()
+            sum1=(copy_col[b]-t[a][b]) + (copy_row[a]-t[a][b])
+            if a == 0 and b == 2:
+                print(copy_col,copy_row)
+            copy_col[b]=t[a][b]
+            copy_row[a]=t[a][b]
+            if a == 0 and b == 2:
+                print(copy_col,copy_row)
+            for k in range(N):
+                for l in range(N):
+                    if k==a and l==b:
+                        continue
+                    sum2=(copy_col[l]-t[k][l]) + (copy_row[k]-t[k][l])
+                    if sum1+sum2>max_sum:
+                        max_sum = sum1+sum2
+                        x,y,x2,y2=b,a,l,k
 
-    max_col = 0
-    max_row = 0
-    x2,y2 = 0,0
-    i = 1
-    while i<N:
-        j = 0
-        while j<N:
-            if sumy_col[j]-t[i][j] > max_col:
-                max_col = sumy_col[j]-t[i][j]
-                x2=j
-            if sumy_row[i]-t[i][j] > max_row:
-                y2=i
-                max_row = sumy_row[i]-t[i][j]
-            j+=1
-        i+=1
-    return (max_col + max_row),(x,y),(x2,y2)
+    print(max_sum)
+    return (max_sum),(x,y),(x2,y2)
 
 from random import randint
 if __name__ == "__main__":
@@ -53,6 +45,7 @@ if __name__ == "__main__":
     st = [[2, 2, 1],[2, 1, 2],[2, 2, 2]]
     st = [[0, 1, 1],[0, 1, 1],[1, 0, 1]]
     st = [[1, 1, 0],[0, 0, 0],[0, 0, 0]]
+    # st = [[0, 1, 0],[0, 1, 1],[1, 1, 1]]
     for i in st:
         print(i)
     print(cw20(st,len(st)))

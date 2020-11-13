@@ -2,11 +2,12 @@
 def cw11():
     num = int(input(">: "))
 
-    a = 10
+    a = num%10
+    num//=10
     while num != 0:
         temp = num%10
         num = num //10 
-        if temp >= a:
+        if temp > a:
             return False
         a = temp
     return True

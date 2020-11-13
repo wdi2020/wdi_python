@@ -10,11 +10,11 @@ if __name__ == "__main__":
         b = num//2
         min_roznica = abs(2 - (num//2))
 
-    while i*i < num:
+    while i < num:
         if num % i == 0 and abs(i - (num//i)) < min_roznica:
             a = i
             b = num//i
             min_roznica = abs(i - (num//i))
-        i+= 2
+        i+= 1
     print(a,b)
 

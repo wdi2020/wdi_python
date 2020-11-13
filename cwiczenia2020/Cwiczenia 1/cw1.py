@@ -69,37 +69,17 @@ def cw5(liczba=25):
         b,a= (1/n)*((n-1)*a+(liczba/(a**(n-1)))),b
     return a,b
 
-def funkcja(x):
-    return x**x - 2020
-def cw6():
-    a = 0
-    b = 10
-    e = 0.000001
-    while True:
-      s = (a + b)/2
-      if abs(funkcja(s)) <= e:
-        break
-      if funkcja(s)*funkcja(a) < 0:
-        b = s
-      else:
-        a = s
-    print(s)
-
 def cw7():
     liczba_szukana = int(input("Podaj liczbe:"))
     a1 = 1
     a2 = 1
-    while a1 <= liczba_szukana // 2 :
+    while a1*a2 < liczba_szukana :
         new_number = a2+a1
         a1 = a2
         a2 = new_number
-        i = 1
-        while a2 <= liczba_szukana:
-            if new_number == liczba_szukana:
-                return a2,i
-            i+=1
-            new_number = a2*i
-    return "nie ma takiej liczby"
+    if a1*a2 == liczba_szukana:
+        return True
+    return False
 
 def cw8(liczba):
     if liczba % 2 == 0:
@@ -206,7 +186,6 @@ def cw17(a = 1, b=1):
         iloraz_1, iloraz_2 = iloraz_2,a2/a1
     return iloraz_2
 def cw18(A=125.0):
-    # hard to tell jak to zrobic
     n = 3
     a = 1
     b = 123

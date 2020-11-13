@@ -2,6 +2,8 @@
 def cw12():
     liczba = int(input("> :"))
     lenght = 0
+    #not good idea - 
+    #lenght = len(str(liczba))
 
     num = liczba
     while num != 0:

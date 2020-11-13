@@ -23,8 +23,3 @@ while i < k:
                 break
     i+=1
 print(t_10[9])
-            
-            
-
-
-

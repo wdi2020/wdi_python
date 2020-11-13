@@ -1,5 +1,5 @@
 
-#by vicioo
+#https://github.com/Viciooo/WDI_zestawy
 def ex19():
 
     a, b = map(int, input().split())

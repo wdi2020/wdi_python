@@ -1,5 +1,5 @@
 def cw01():
-    MAX = 8 
+    MAX = 7 
     d,g,l,p = MAX-1,0,0,MAX-1
     t = [[0 for _ in range(MAX)] for _ in range(MAX)]
     row_index = 0
@@ -35,9 +35,10 @@ def cw01():
         
         row_index+=1
         column_index+=1
+    if MAX%2 == 1:
+        t[row_index][column_index] = i
     return t
 
 if __name__ == "__main__":
-    # dla np nie dziala
     for i,e in enumerate(cw01()):
         print(e,i)

@@ -1,4 +1,5 @@
 #10**6
+#slow 
 def czy_pierwsza(num):
     if num == 1:
         return False
@@ -74,5 +75,5 @@ def cw16(parameter):
 from time import time
 if __name__ == "__main__":
     start = time()
-    print(cw16(10000))
+    print(cw16(100000))
     print(time() - start)

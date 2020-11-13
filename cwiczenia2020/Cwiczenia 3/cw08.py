@@ -1,19 +1,18 @@
 from random import randint
-
 def czy_pierwsza(num):
-    if num <= 1:
+    if num <=1:
         return False
-    if num ==2 or num ==3 :
+    if num ==2 or num ==3:
         return True
-    if num %2 == 0:
-        return False
-    if num%3 == 0:
+    if num %2==0 or num%3==0:
         return False
     i = 6
-    while i*i <= num:
-        if num%(i-1) == 0 or num%(n+1) == 0:
+    while (i-1)**2<=num:
+        if num %(i-1) == 0:
             return False
-        i+= 6
+        if num%(i+1) == 0:
+            return False
+        i+=6
     return True
 def rekurencja(t,n,index):
     copy = int(t[index]**.5)

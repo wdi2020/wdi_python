@@ -7,7 +7,9 @@ def cw7():
         copy = tab[i]
         while copy > 0:
             if copy%2 == 0:
-                return False 
+                break
             copy //=10
+        else:
+            return True
         i+=1
-    return True
+    return False

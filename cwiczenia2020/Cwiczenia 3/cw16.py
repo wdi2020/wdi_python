@@ -3,7 +3,6 @@ def czy_jes_naj(t):
     count_min = 1
     mmax = t[0]
     count_max = 1
-
     i = 1
     while i < len(t):
         if t[i] < mmin:
@@ -19,4 +18,4 @@ def czy_jes_naj(t):
             count_max += 1
         i+=1 
     
-    return count_max == count_min
+    return count_max == 1 and count_min == 1

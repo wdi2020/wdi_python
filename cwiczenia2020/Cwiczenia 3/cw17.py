@@ -6,7 +6,7 @@ def czy_pierwsza(num):
     if num %2==0 or num%3 == 0:
         return False
     i = 6
-    while i*i <= num:
+    while (i-1)**2 <= num:
         if num%i-1 ==0 or num %i+1 == 0:
             return False
         i+= 6
