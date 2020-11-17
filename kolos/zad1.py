@@ -33,10 +33,10 @@ while n>0:
         ilosc_2-=1
     #end while
 
+    wynik *= copy
+
     if(wynik > 32657):
         print("wyszło poza zalres")
-
-    wynik *= copy
 
     if wynik>10:
         wynik = wynik%10
