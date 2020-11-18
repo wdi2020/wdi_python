@@ -12,8 +12,14 @@ def szachuj_(danee):
             #na skos
             x = abs(danee[i][0] - danee[j][0])
             y = abs(danee[i][1] - danee[j][1])
-            if x // y == 1.0 or x//y == -1:
+            if x // y == 1 or x//y == -1:
                 return False
             j+=1
         i+=1
     return True
+    #? false to sie szachuja a true to sie nie szachuja 
+
+
+dane = [(i,i%10) for i in range(100)]
+dane = [(1,4),(0,5)]
+print(szachuj_(dane))

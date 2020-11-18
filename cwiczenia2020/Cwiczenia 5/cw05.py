@@ -8,6 +8,7 @@ def cw05(dane):
                 #tylko w gore
                 poziomA = i[1] + dlugosc
                 countA = 0
+                b = False
                 for f in dane:
                     if ( f[0] > i[0] and f[0] < e[0] ) and ( f[1] > i[1] and f[1] < poziomA):
                         break
@@ -15,5 +16,11 @@ def cw05(dane):
                         if f[0] == i[0] or f[0] == e[0]:
                             countA+=1
                             if countA == 2:
-                                return True
+                                b = True
+                else:
+                    if b:
+                        return True
     return False
+
+if __name__ == "__main__":
+    print(cw05([(1,1),(1,4),(4,1),(4,4),(1,2)]))
