@@ -8,8 +8,8 @@ for i in range(50):
                 continue
             if len(t2) - 24 - j + k < 0:
                 continue
-            temp1 = t1[i:k:1]
-            temp2 = t2[j:24-k:1]
+            temp1 = t1[i:k]
+            temp2 = t2[j:24-k]
             sum1 = 0
             sum2 = 0
             for i in temp1:
@@ -29,6 +29,3 @@ for i in range(50):
                     suma *= podstawa
                 podstawa += 1
 print("nie")
-            
-
-            
