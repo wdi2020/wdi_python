@@ -1,4 +1,3 @@
-#Łukasz Pawlak
 #algorytm szuka maxymalnego elementu patrzac po indexach od 0 jezeli jakas liczba w systemie 2 ma 1 a druga jej nie ma to jest wieksza
 #nastepnie szuka elementu najmniejszego zapamietujac indeks w ktirym wierszu byla i oblicza odlegosc od wierszy elem najwiekszego i najmniejszego
 def comparemax(a,b,n):

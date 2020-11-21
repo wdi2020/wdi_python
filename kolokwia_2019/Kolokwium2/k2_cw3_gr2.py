@@ -34,7 +34,7 @@ def funck(elem):
     else:
         return 0
 
-t = [1,3,3,3,3,5,7,11,13,13,13,1,2,2,2,3]
+t = [1,3,3,3,3,5,7,11,13,13,13,1,2,2,3]
 elem = Node(t[-1],None)
 for i in range(len(t)-1,-1,-1):
     elem = Node(t[i],elem)

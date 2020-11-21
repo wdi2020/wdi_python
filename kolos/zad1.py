@@ -1,6 +1,6 @@
-#Łukasz Pawlak
 #Działanie
 #algorytm dodaje do zmiiennej pomocniczej szukay ciag a nastepnie go szuka w tablicy
+#multi 2 dziala, multi 1 nie
 
 def multi(T):
     max_ = 0
