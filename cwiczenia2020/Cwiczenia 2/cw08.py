@@ -34,4 +34,3 @@ if __name__ == "__main__":
             a2 = new_number
         if flag: break
     print(num)
-            
