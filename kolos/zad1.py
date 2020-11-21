@@ -1,48 +1,55 @@
-n = int(input(">"))
+#Łukasz Pawlak
+#Działanie
+#algorytm dodaje do zmiiennej pomocniczej szukay ciag a nastepnie go szuka w tablicy
 
-count = 0
-i = n
-flag = False
-while i>4:
-    if i%5 ==0:
-        flag = True
-        c = i
-        while c%5==0:
-            count+=1
-            c//=5
-        #end while
-    #end if
-    if flag==True:
-        i-=5
-    else:
-        i-=1
-#end while
+def multi(T):
+    max_ = 0
+    i = 0
+    while i <len(T):
+        napis = T[i][0]
+        napiss_ = T[i]
+        max_curr = 0
+        curr_napis = ""
+        for j in range(1,len(napiss_)):
+            curr_napis += T[i][j]
+            if curr_napis == napis:
+                max_curr +=1
+                curr_napis = ""
+            elif len(curr_napis) < len(napis):
+                continue
+            else:
+                napis+=T[i][j]
+                curr_napis = ""
+        else:
+            if max_curr != 0:
+                max_curr += 1
+            if max_curr > max_:
+                max_ = max_curr
+        i+=1
+    return max_
+def multi2(T):
+    longest = 0
+    for j in T:
+        n = len(j)
+        idx =1
+        while idx <= (n//2) +1:
+            if n%idx == 0:
+                s = ""
+                i = 0
+                while len(s) != idx:
+                    s+= j[i]
+                    i+=1
+                # i = 0
+                # while i < n//idx:
+                    # s += s
+                    # i+=1
+                s = s * (n//idx)
+                if s == j:
+                    if n//idx > longest:
+                        longest = n//idx
+            idx+=1
+    if longest == 1:
+        return 0
+    return longest
 
-ilosc_5,ilosc_2 = count,count
-wynik = 1
-while n>0:
-    copy = n
-
-    while copy%5 ==0 and ilosc_5>0:
-        copy //= 5
-        ilosc_5-=1
-    #end while
-
-    while copy%2==0 and ilosc_2>0:
-        copy//=2
-        ilosc_2-=1
-    #end while
-
-    wynik *= copy
-
-    if(wynik > 32657):
-        print("wyszło poza zalres")
-
-    if wynik>10:
-        wynik = wynik%10
-    #end if
-
-    n-=1
-#end while
-
-print(wynik)
+print(multi2(["ABCABCABC","AA","ABAABA"]))

@@ -3,7 +3,7 @@ def func(k):
     b_n,b_n_1= 0,2
     b_n = b_n_1+a_n_1
     a_n = a_n_1 + (b_n/3)
-    min_odl=k
+    min_odl=abs(k)**10
     min_index=0
     ciag=""
 
@@ -12,6 +12,7 @@ def func(k):
         index+=1
         b_n,b_n_1 = b_n_1+a_n_1 ,b_n
         a_n,a_n_1 = a_n_1+(b_n/3) ,a_n
+        print(a_n,b_n)
         if abs(a_n-k) < min_odl:
             min_odl = abs(a_n-k)
             ciag="a"
@@ -24,10 +25,10 @@ def func(k):
             min_index = index
             oddala = False
 
-        if index > 100000:
+        if index > 1000000:
             break
 
-    return min_odl,min_index,ciag
+    return min_odl,min_index//2,ciag
 
 if __name__ == "__main__":
-    print(func(1099796))
+    print(func(1000))

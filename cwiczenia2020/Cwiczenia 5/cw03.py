@@ -12,7 +12,7 @@ def szachuj_(danee):
             #na skos
             x = abs(danee[i][0] - danee[j][0])
             y = abs(danee[i][1] - danee[j][1])
-            if x // y == 1 or x//y == -1:
+            if x // y == 1:
                 return False
             j+=1
         i+=1
