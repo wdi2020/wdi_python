@@ -1,3 +1,4 @@
+#zadanie 22 i 25 to to samo ...
 def prime_div_list(num):
     tab = []
     i = 2

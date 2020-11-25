@@ -1,3 +1,4 @@
+from math import sqrt
 def check(tab,r,k):
     if len(tab)%3 == 0 and len(tab) != 0:
         return False
