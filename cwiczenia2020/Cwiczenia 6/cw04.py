@@ -76,5 +76,5 @@ def func(n):
 
 from time import time
 start = time()
-print(func(8))
+print(func(6))
 print(time()-start)

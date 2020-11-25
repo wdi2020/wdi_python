@@ -9,6 +9,7 @@ def prime_div_list(num):
                 num//=i
         i+=1
     return tab
+
 def czy_pierwsza(num):
     if num <=1:
         return False

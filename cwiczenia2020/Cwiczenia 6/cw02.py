@@ -8,11 +8,10 @@ def PrimeDivList(n): #zwraca listÄ™ podzielnikĂłw pierwszych w postaci tabl
             n //= i
         i+=1
     return l
-
-def waga(tab):
+def waga(tab,size):
     l_p = []
-    for elem in tab:
-        for e in PrimeDivList(elem):
+    for elem in range(size):
+        for e in PrimeDivList(tab[elem]):
             for i in l_p:
                 if e == i:
                     break
@@ -20,29 +19,24 @@ def waga(tab):
                 l_p.append(e)
     return len(l_p)
 
-def rekur(tab,index,tryb,tab1,tab2,tab3):
+def rekur(tab,index,tab1,tab2,tab3,idx1,idx2,idx3):
     if index >= len(tab):
-        if waga(tab1) == waga(tab2) and waga(tab1) == waga(tab3):
+        if waga(tab1,idx1) == waga(tab2,idx2) == waga(tab3,idx3):
             return True
         return False
-    if tryb == 0:
-        li = list(tab1)
-        li.append(tab[index])
-        tab1 = tuple(li)
-    elif tryb == 1:
-        li = list(tab3)
-        li.append(tab[index])
-        tab2 = tuple(li)
-    elif tryb == 2:
-        li = list(tab3)
-        li.append(tab[index])
-        tab3 = tuple(li)
-    #end if
-    return rekur(tab,index+1,0,tab1,tab2,tab3) or rekur(tab,index+1,1,tab1,tab2,tab3) or rekur(tab,index+1,2,tab1,tab2,tab3)
+    tab1[idx1] = tab[index]
+    if rekur(tab,index+1,tab1,tab2,tab3,idx1+1,idx2,idx3):
+        return True
+    tab2[idx2] = tab[index]
+    if rekur(tab,index+1,tab1,tab2,tab3,idx1,idx2+1,idx3):
+        return True
+    tab3[idx3] = tab[index]
+    if rekur(tab,index+1,tab1,tab2,tab3,idx1,idx2,idx3+1):
+        return True
+    return False
 
 def func(tab):
-    tab1,tab2,tab3 = tuple(),tuple(),tuple()
-    return rekur(tab,0,0,tab1,tab2,tab3) or rekur(tab,0,1,tab1,tab2,tab3) or rekur(tab,0,2,tab1,tab2,tab3)
+    tab1,tab2,tab3 = [0 for _ in range(len(tab))],[0 for _ in range(len(tab))],[0 for _ in range(len(tab))]
+    return rekur(tab,0,tab1,tab2,tab3,0,0,0) 
 
-
-print(func([2,3,5]))
+print(func([2,3,6]))

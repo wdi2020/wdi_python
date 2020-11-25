@@ -14,16 +14,16 @@ def check(t):
         return True
     return False
 
-def reku(tab,pomc,index):
-    if len(pomc) == 13:
+def reku(tab,pomc,index,idx_pom):
+    if idx_pom == 13:
         return check(pomc)
     if index == len(tab):
         return False
-    a = reku(tab,pomc,index+1)
-    pomc.append(tab[index])
-    b = reku(tab,pomc,index+1)
-    pomc.pop()
+    a = reku(tab,pomc,index+1,idx_pom)
+    pomc[idx_pom] = tab[index]
+    idx_pom+=1
+    b = reku(tab,pomc,index+1,idx_pom)
     return a or b
 
 def fun(tab):
-    return reku(tab,[],0)
+    return reku(tab,[0 for _ in range(13)],0,0)

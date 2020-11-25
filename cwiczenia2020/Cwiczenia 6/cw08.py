@@ -17,5 +17,4 @@ def rekur(tab,masa_szukana,suma,index,tryb):
 def func(tab,masa_szukana):
     return rekur(tab,masa_szukana,0,0,0) or rekur(tab,masa_szukana,0,0,1) or rekur(tab,masa_szukana,0,0,2)
 
-
 print(func([20,20],10))
