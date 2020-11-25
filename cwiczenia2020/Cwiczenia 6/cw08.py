@@ -13,7 +13,6 @@ def rekur(tab,masa_szukana,suma,index,tryb):
     elif tryb ==2:
         suma -= tab[index]
     return rekur(tab,masa_szukana,suma,index+1,0) or rekur(tab,masa_szukana,suma,index+1,1) or rekur(tab,masa_szukana,suma,index+1,2)
-    
 
 def func(tab,masa_szukana):
     return rekur(tab,masa_szukana,0,0,0) or rekur(tab,masa_szukana,0,0,1) or rekur(tab,masa_szukana,0,0,2)
