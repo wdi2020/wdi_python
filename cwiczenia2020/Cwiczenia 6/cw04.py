@@ -1,46 +1,80 @@
 #kon
 def rekur(tab,y,x):
-    if tab[y][x] == True:
-        return
     tab[y][x] = True
+    e = 0
+    for elem in tab:
+        for column in elem:
+            if column == False:
+                e =1
+                break
+        if e == 1:
+            break
+    else:
+        print("adsfkjhadskgjha")
+        return True
+
     #czy jest tak ze kon szachuje cos tam np ze to co pod koniem i suma jego szachownych jest rowna x
 #            cop = (i,j)
     i = y
     j = x
     # prawo gora --^
     if i >= 1 and j <= len(tab)-3:
-        rekur(tab,i-1,j+2)
+        if tab[y-1][x+2] != True:
+            if rekur(tab,i-1,j+2):
+                return True
+            tab[i-1][j+2] = False
     #prawo dol --v
     if i <= len(tab)-2 and j <= len(tab)-3:
-        rekur(tab,i+1,j+2)
+        if tab[y+1][x+2] != True:
+            if rekur(tab,i+1,j+2):
+                return True
+            tab[y+1][x+2] = False
     #lewo gor --^
     if i >= 1 and j >= 2:
-        rekur(tab,i-1,j-2)
+        if tab[y-1][x-2] != True:
+            if rekur(tab,i-1,j-2):
+                return True
+            tab[i-1][j-2] = False
     #lewo dol --v
     if i<=len(tab)-3 and j>=2:
-        rekur(tab,i+1,j-2)
+        if tab[y+1][x-2] != True:
+            if rekur(tab,i+1,j-2):
+                return True
+            tab[i+1][j-2] = False
     #gora prawo ||>
     if i-2 >= 0 and j+1 <= len(tab)-1:
-        rekur(tab,i-2,j+1)
+        if tab[y-2][x+1] != True:
+            if rekur(tab,i-2,j+1):
+                return True
+            tab[i-2][j+1] = False
     #gora lewo ||<
     if i-2 >= 0 and j-1 >= 0:
-        rekur(tab,i-2,j-1)
+        if tab[y-2][x-1] != True:
+            if rekur(tab,i-2,j-1):
+                return True
+            tab[i-2][j-1] = False
     #dol prawo ||>
     if i+2 <= len(tab)-1 and j+1 <= len(tab)-1:
-        rekur(tab,i+2,j+1)
+        if tab[y+2][x+1] != True:
+            if rekur(tab,i+2,j+1):
+                return True
+            tab[i+2][j+1] = False
     #dol lewo ||<
     if i+2 <= len(tab)-1 and j-1 >= 0:
-        rekur(tab,i+2,j-1)
+        if tab[y+2][x-1] != True:
+            if rekur(tab,i+2,j-1):
+                return True
+            tab[i+2][j-1] = False
+from math import ceil
 def func(n):
-    for i in range(n):
-        for j in range(n):
+    for i in range(ceil(n//2)):
+        for j in range(ceil(n//2)):
             tab = [[False for _ in range(n)]for _ in range(n)]
-            rekur(tab,i,j)
-            for elem in tab:
-                for column in elem:
-                    if column == False:
-                        return False
-    return True
+            if rekur(tab,i,j):
+                return True
+    return False 
 
-print(func(4))
-
+from time import time
+start = time()
+print(func(8))
+print(time()-start)
