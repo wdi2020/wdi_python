@@ -32,4 +32,4 @@ def pierwsze_liczby(num):
     rekur(num,0,len(str(num)),0)
 
 
-pierwsze_liczby(1234)
+pierwsze_liczby(127127)
