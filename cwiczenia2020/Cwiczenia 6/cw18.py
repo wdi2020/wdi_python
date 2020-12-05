@@ -31,6 +31,5 @@ def func(tab):
     a = rekur(0,0,tab,empty)
     return a
 
-from random import randint
 tab = [[91 for _ in range(8)] for _ in range(8)]
 print(func(tab))
