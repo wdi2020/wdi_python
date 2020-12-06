@@ -41,7 +41,6 @@ def rekur(tab,idx_dziel,index,pomocnicza,idx_pom):
     for i in range(index+1,len(tab)):
         pomocnicza[idx_pom] = i
         idx_pom+=1
-        print(pomocnicza,idx_pom)
         if check(pomocnicza,tab,idx_pom):
             return True
         if rekur(tab,idx_dziel,i,pomocnicza,idx_pom):
@@ -55,4 +54,5 @@ def func(tab):
     return rekur(tab,0,0,pomocnicza,0)
 
 tab = [1,1,1,0,1,1]
+tab = [1,1,1,1,0,1,0,1,1,0,1,1,1,1,1]
 print(func(tab))

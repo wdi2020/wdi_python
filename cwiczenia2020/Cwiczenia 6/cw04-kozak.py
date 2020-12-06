@@ -13,5 +13,5 @@ def start(dim):
 
 from time import time
 sta = time()
-print(start(5))
+print(start(6))
 print(time()-sta)
