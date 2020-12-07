@@ -1,8 +1,8 @@
 def rekur(tab,index,suma,suma_ind,pusty:bool):
-    if index == len(tab): 
+    if index == len(tab):
         if pusty:
             if suma == suma_ind:
-                return suma 
+                return suma
         return False
     a = rekur(tab,index+1,suma,suma_ind,pusty)
     if a != False:
