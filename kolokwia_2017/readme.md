@@ -1,0 +1,1 @@
+zrobic kolosa poprawkowego tu

@@ -6,7 +6,7 @@ def cw07(MAX):
     while i<MAX:
         j = 0
         while j<MAX:
-            index = 0 
+            index = 0
             temp = t1[i][j]
             while index<MAX*MAX:
                 if temp >= t2[index]:
