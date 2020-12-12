@@ -30,6 +30,15 @@ def func(tab):
     empty = [[0 for _ in range(8)] for _ in range(8)]
     a = rekur(0,0,tab,empty)
     return a
-
-tab = [[91 for _ in range(8)] for _ in range(8)]
+tab= [
+[1,4,6,2,3,5,35,2],
+[1,4,6,2,3,5,35,2],
+[1,4,6,82,3,5,35,2],
+[1,4,6,2,3,5,35,2],
+[1,4,6,2,3,5,91,2],
+[1,4,6,82,3,5,24,2],
+[1,4,6,2,3,5,35,7],
+[1,4,6,2,3,5,35,8],
+]
+# tab = [[91 for _ in range(8)] for _ in range(8)]
 print(func(tab))
