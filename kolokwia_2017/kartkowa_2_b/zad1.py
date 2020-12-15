@@ -2,7 +2,6 @@
 #funkcj¦, która sprawdza, czy jest mo»liwe ustawienie dwóch wzajemnie szachuj¡cych si¦ skoczków tak, aby
 #suma warto±ci pól, na których stoj¡ skoczki, byªa liczb¡ pierwsz¡. Do funkcji nale»y przekaza¢ tablic¦ t,
 #funkcja powinna zwróci¢ warto±¢ typu bool.
-
 def is_Prime(num):
     if num <=1:
         return False
@@ -31,3 +30,4 @@ def ustaw(tab,n):
                 if can_be(i-elem[0],j-elem[1],n):
                     if is_Prime(tab[i][j] + tab[i-elem[0]][j-elem[1]]):
                         return True
+    return False

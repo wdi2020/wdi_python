@@ -26,7 +26,7 @@ def reku(tab,i,j,row_hash,col_hash,square_hash):
     return False
 
 def strt(tab):
-    col_hash = [[False for _ in range(10)]for _ in range(10)]
+    col_hash = [[False for _ in range(10)] for _ in range(10)]
     row_hash = [[False for _ in range(10)] for _ in range(10)]
     square_hash = [[[False for _ in range(10)] for _ in range(3)] for _ in range(3)]
     for i in range(len(tab)):
@@ -39,8 +39,12 @@ def strt(tab):
     reku(tab,0,0,row_hash,col_hash,square_hash)
     return tab
 
-
 tab = [[0 for _ in range(9)]for _ in range(9)]
+
+from time import time
+start = time()
 a = strt(tab)
+print(time()-start)
+
 for elem in a:
     print(elem)

@@ -14,13 +14,16 @@ def reku(tab,index,index_liczb):
     if index+1 == len(tab):
         if checka(tab) and checkb(tab):
             print(tab)
-        return None
+            return 1
+        return 0
+    suma = 0
     for i in range(len(tab)):
         if tab[i] == 0:
             tab[i] = index_liczb
-            reku(tab,index+1,index_liczb+1)
+            suma += reku(tab,index+1,index_liczb+1)
             tab[i] = 0
+    return suma
 
 t = [0 for _ in range(9)]
 t[0] = 1
-reku(t,0,2)
+print(reku(t,0,2))

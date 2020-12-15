@@ -36,4 +36,5 @@ def move(tab,n,c1,c2,r1,r2,max_sum):
             return True
         if suma(tab,r1,c1,r2,i) > max_sum:
             return True
+    return False
 #jezeli funckja check dziala to to zadziala...
