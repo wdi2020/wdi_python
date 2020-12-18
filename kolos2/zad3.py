@@ -29,8 +29,6 @@ def chess(T):
         for col1 in range(n):
             for row2 in range(row1+1,n):
                 for col2 in range(col1+1,n):
-                    if row1 == row2 and col1 == col2:
-                        continue
                     suma = zlicz_wieze(row1,row2,col1,col2,T,suma_wierszy,suma_kolumn)
                     if suma>max_suma:
                         r1,c1,r2,c2=row1,col1,row2,col2
