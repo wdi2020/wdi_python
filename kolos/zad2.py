@@ -47,7 +47,6 @@ def distance(T):
                 b = [T[i],i]
                 break
             elif T[i][j] ==1 and j == min_safe:
-                print(T[i])
                 b = comparemin(b,[T[i],i],n)
             j+=1
             #end if

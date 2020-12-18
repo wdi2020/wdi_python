@@ -35,4 +35,4 @@ def func(a,b):
         return "Ty debilu"
     rec("1",a-1,b)
 
-func(2,3)
+func(3,2)

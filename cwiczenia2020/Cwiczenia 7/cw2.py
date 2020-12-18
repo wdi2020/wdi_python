@@ -1,8 +1,8 @@
 #2. Zastosowanie listy odsyłaczowej do implementacji
-#tablicy rzadkiej. Proszę napisać trzy funkcje:
-#– inicjalizującą tablicę,
-#– zwracającą wartość elementu o indeksie n,
-#– podstawiającą wartość value pod indeks n.
+# tablicy rzadkiej. Proszę napisać trzy funkcje:
+# – inicjalizującą tablicę,
+# – zwracającą wartość elementu o indeksie n,
+# – podstawiającą wartość value pod indeks n.
 class Node:
     #val,next,idx
     def __init__(self,val=0,next=None,idx=-1):
@@ -27,7 +27,7 @@ def insert(first,idx,val):
             cp = cp.next
         return None
 
-    a =  is_in_list(first,idx)
+    a = is_in_list(first,idx)
     if a != None:
         a.val = val
         return
@@ -35,23 +35,15 @@ def insert(first,idx,val):
     cp = bef.next
     while cp != None and cp.idx<idx:
         bef,cp = cp,cp.next
-    if cp != None:
-        new_node = Node()
-        new_node.next = cp
-        new_node.val = val
-        new_node.idx = idx
-        bef.next = new_node
-    else:
-        new_node = Node()
-        new_node.val = val
-        new_node.idx = idx
-        new_node.next = None
-        bef.next = new_node
+    
+    new_node = Node()
+    new_node.next = cp
+    new_node.val = val
+    new_node.idx = idx
+    bef.next = new_node
     return
 
 def get(first,idx):
-    if first == None:
-        return None
     def is_in_list(first,idx):
         cp = first
         while cp != None:
@@ -61,7 +53,11 @@ def get(first,idx):
                 return cp
             cp = cp.next
         return None
-    return is_in_list(first,idx)
+    a = is_in_list(first,idx)
+    if a != None:
+        return a
+    #wartosc domyslna w -1 elemencie
+    return first.val
 
 def wypisz(first):
     bef = first.next
@@ -71,6 +67,5 @@ def wypisz(first):
 
 a = init()
 for i in range(10):
-    insert(a,i,i+1)
-for i in range(10):
-    print(get(a,i))
+    insert(a,10-i,i+1)
+wypisz(a)

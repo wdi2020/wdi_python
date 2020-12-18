@@ -25,9 +25,7 @@ def reku(s,index,curr_s,szukany):
         return True
     if index == len(s):
         return False
-    if reku(s,index+1,curr_s,szukany):
-        return True
-    if reku(s,index+1,curr_s+s[index],szukany):
+    if reku(s,index+1,curr_s,szukany) or reku(s,index+1,curr_s+s[index],szukany):
         return True
     return False
 def func(s1,s2):

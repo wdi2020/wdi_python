@@ -1,6 +1,5 @@
 #author - Nikodem K.
 N = int(input("podaj liczbe: "))
-e = 1
 a = 1
 sil = 1
 t = [0 for i in range(10000)]
@@ -13,7 +12,7 @@ while not kon:
     for x in range(N+3):
         if (n//sil) % 10 == 0:
             licz += 1
-        if licz - 3 == N:
+        if licz-3 == N:
             kon = True
         t[x] += (n//sil) % 10
         n *= 10

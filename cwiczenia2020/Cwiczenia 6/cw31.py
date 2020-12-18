@@ -22,4 +22,4 @@ def reku(tab,idx,num):
 def func(num):
     return reku(na_czynniki_p(num),0,1)
 
-print(func(60))
+print(func(1234))

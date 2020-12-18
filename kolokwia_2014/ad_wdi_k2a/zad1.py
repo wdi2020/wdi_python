@@ -8,6 +8,7 @@ def check(tab):
         if new_tab[odl] != 0:
             print(new_tab[odl])
             print(i)
+            return
         else:
             new_tab[odl] = i
 

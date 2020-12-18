@@ -7,6 +7,8 @@
 #
 def sumy(r1,c1,r2,c2,tab):
     #tu bylaby suma ale juz ja pisalem z 5 razy
+    pass
+
 def func(tab):
     maxym = 0
     for i in range(len(tab)):

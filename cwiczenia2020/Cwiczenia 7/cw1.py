@@ -1,55 +1,60 @@
+#1. Zaimplementuj zbiór mnogościowy liczb naturalnych korzystając ze struktury listyodsyłaczowej.
+#-czy element należy do zbioru
+#-wstawienie elementu do zbioru
+#-usunięcie elementu ze zbioru
 class Node:
-    def __init__(self,val=0,next=None):
-        self.next = next
-        self.val = 0
-
-def is_in_list(first,val):
-    cp = first
-    while cp != None:
-        if cp.val == val:
+    def __init__(self,value = None):
+        self.val = value
+        self.next = None
+def elem(zbior, element):
+    p = zbior
+    while p != None:
+        if p.val == element:
             return True
-        cp = cp.next
+        p = p.next
     return False
-
-def insert(first,idx,val):
-    if idx ==0:
-        nod = Node()
-        nod.next = None
-        nod.val = val
-        first = nod
-        return first
-    idx-=1
-    i = 0
-    bef=first
-    cp = bef.next
-    while cp != None and i<idx:
-        bef,cp = cp,cp.next
-        i+=1
-    new_node = Node()
-    new_node.next = cp
-    new_node.val = val
-    bef.next = new_node
-    return first
-
-def delte(first,val):
-    bef=first
-    cp = bef.next
-    while cp != None:
-        if cp.val == val:
-            bef.next = cp.next
-            return True
-        bef,cp = cp,cp.next
-    return False
-
+def insert(zbior,element):
+    if zbior ==None:
+        new_elem = Node(element)
+        return new_elem
+    prev=None
+    curr=zbior
+    while curr != None:
+        if curr.val == elem:
+            return zbior
+        prev,curr = curr,curr.next
+    new_elem = Node(element)
+    prev.next = new_elem
+    return zbior
+def delete(zbior, el):
+    if zbior is None:
+        return zbior
+    prev = None
+    curr = zbior
+    if curr.val == el:
+        prev = curr.next
+        del curr
+        return prev
+    while curr is not None and curr.val != el:
+        prev = curr
+        curr = curr.next
+    if curr is None:
+        return zbior
+    prev.next = curr.next
+    del curr
+    return zbior
 def wypisz(first):
     bef = first
     while bef != None:
         print(bef.val)
         bef = bef.next
 
-first = None
-for i in range(5):
-    first = insert(first,i,10-i)
-for i in range(5):
-    first = insert(first,i+2,20-i)
-wypisz(first)
+zbior = None
+for i in range(15):
+    zbior = insert(zbior,i)
+for i in range(15):
+    print(elem(zbior,i))
+print("---")
+delete(zbior, 1)
+for i in range(14):
+    print(elem(zbior,i))
