@@ -1,6 +1,4 @@
 null = None
-
-
 class Node:
     def __init__(self, value=null, next=null):
         self.val = value
