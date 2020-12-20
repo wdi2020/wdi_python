@@ -1,11 +1,13 @@
-#1. Zaimplementuj zbiór mnogościowy liczb naturalnych korzystając ze struktury listyodsyłaczowej.
-#-czy element należy do zbioru
-#-wstawienie elementu do zbioru
-#-usunięcie elementu ze zbioru
+# 1. Zaimplementuj zbiór mnogościowy liczb naturalnych korzystając ze struktury listyodsyłaczowej.
+# -czy element należy do zbioru
+# -wstawienie elementu do zbioru
+# -usunięcie elementu ze zbioru
 class Node:
-    def __init__(self,value = None):
+    def __init__(self, value=None):
         self.val = value
         self.next = None
+
+
 def elem(zbior, element):
     p = zbior
     while p != None:
@@ -13,19 +15,23 @@ def elem(zbior, element):
             return True
         p = p.next
     return False
-def insert(zbior,element):
-    if zbior ==None:
+
+
+def insert(zbior, element):
+    if zbior == None:
         new_elem = Node(element)
         return new_elem
-    prev=None
-    curr=zbior
+    prev = None
+    curr = zbior
     while curr != None:
         if curr.val == elem:
             return zbior
-        prev,curr = curr,curr.next
+        prev, curr = curr, curr.next
     new_elem = Node(element)
     prev.next = new_elem
     return zbior
+
+
 def delete(zbior, el):
     if zbior is None:
         return zbior
@@ -43,18 +49,19 @@ def delete(zbior, el):
     prev.next = curr.next
     del curr
     return zbior
+
+
 def wypisz(first):
     bef = first
     while bef != None:
         print(bef.val)
         bef = bef.next
 
+
 zbior = None
 for i in range(15):
-    zbior = insert(zbior,i)
-for i in range(15):
-    print(elem(zbior,i))
+    zbior = insert(zbior, i)
+wypisz(zbior)
 print("---")
-delete(zbior, 1)
-for i in range(14):
-    print(elem(zbior,i))
+zbior = delete(zbior, 0)
+wypisz(zbior)
