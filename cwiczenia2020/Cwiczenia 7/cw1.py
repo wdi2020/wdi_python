@@ -63,5 +63,6 @@ for i in range(15):
     zbior = insert(zbior, i)
 wypisz(zbior)
 print("---")
-zbior = delete(zbior, 0)
+for i in range(15):
+    zbior = delete(zbior, i)
 wypisz(zbior)

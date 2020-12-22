@@ -1,2 +1,5 @@
-4
-10
+*4*
+
+*10*
+
+zadanie 27 już było, w tym zestawie
