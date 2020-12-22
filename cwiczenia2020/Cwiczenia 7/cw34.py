@@ -88,16 +88,10 @@ def usun(first: Node, k):
     while cp != cp2:
         pomocniczy = insertIfNotInList(pomocniczy, cp2.val)
         cp2 = cp2.next
-    wypisz(pomocniczy)
     # tu juz sa w pomocniczy teraz wyciagnac co usunac i to policzyc i usunac
     cnt = 0
+    #cp2 == cp3
     cp3 = first
-    while check(pomocniczy, k, cp2.val):
-        cnt += 1
-        cp3 = cp2.next
-        del cp2
-        cp2 = cp3.next
-        cp.next = cp3
     cp, cp2 = cp3, cp3.next
     while cp2 != cp3:
         if check(pomocniczy, k, cp2.val):
@@ -107,15 +101,16 @@ def usun(first: Node, k):
             cp2 = cp.next
             continue
         cp, cp2 = cp2, cp2.next
-    if cp == cp2:
-        if check(first, k, cp2.val):
-            cnt += 1
-            first = null
+    if check(pomocniczy,k,cp2.val):
+        cp.next = cp2.next
+        cnt+=1
+        del cp2
+        first = cp
     return cnt
 
 
 last = Node(1, null)
-first = Node(1, Node(2, Node(9, Node(3, Node(6, Node(8, Node(0, Node(7, Node(5, Node(3, Node(2, last)))))))))))
+first = Node(3, Node(5, Node(9, Node(3, Node(6, Node(8, Node(0, Node(7, Node(5, Node(3, Node(2, last)))))))))))
 last.next = first
 print(lista(first))
-print(usun(first, 2))
+print(usun(first, 1))
