@@ -89,8 +89,9 @@ def func(first, second):
 
 
 tab1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
-tab2 = [2, 3, 4, 6, 8, 10]
+tab2 = [0,2, 3, 4, 6, 8, 10]
 val, fir, sec = func(tabToLista(tab1).first, tabToLista(tab2).first)
 print(val)
 print(lista(fir))
 print(lista(sec))
+#todo ostatni element
