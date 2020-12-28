@@ -40,53 +40,51 @@ def tabToLista(tab: list):
 # Każdy łańcuch zawiera niepowtarzające się liczby naturalne. W obu łańcuchach liczby są posortowane rosnąco.
 # Proszę napisać funkcję usuwającą z każdego łańcucha liczby nie występujące w drugim. Do funkcji należy przekazać
 # wskazania na oba łańcuchy, funkcja powinna zwrócić łączną liczbę usuniętych elementów.
+# ale chuj napisalem odwrotny program elo
 
 def func(first, second):
-    f1, f2 = first, first.next
-    s1, s2 = second, second.next
+    f1, f2 = null, first
+    s1, s2 = null, second
     cnt = 0
     while f2 != null and s2 != null:
-        if f2.val < s2.val:
+        if f2.val == s2.val:
             f1, f2 = f2, f2.next
-        elif f2.val > s2.val:
             s1, s2 = s2, s2.next
-        else:
-            s1.next = s2.next
-            del s2
-            s2 = s1.next
-            f1.next = f2.next
-            del f2
-            f2 = f1.next
-            cnt += 2
-    while first.val == second.val:
-        cnt += 2
-        first, second = first.next, second.next
-    val = first.val
-    cp, cp2 = second, second.next
-    while cp2 != null:
-        if cp2.val > val:
-            break
-        elif cp2.val == val:
-            cnt += 2
-            cp.next = cp2.next
-            del cp2
-            cp2 = cp.next
-        else:
-            cp, cp2 = cp2, cp2.next
-    val = second.val
-    cp, cp2 = first, first.next
-    while cp2 != null:
-        if cp2.val > val:
-            break
-        elif cp2.val == val:
-            cnt += 2
-            cp.next = cp2.next
-            del cp2
-            cp2 = cp.next
-        else:
-            cp, cp2 = cp2, cp2.next
-    return cnt,first,second
-
+        elif f2.val > s2.val:
+            if s1 != null:
+                s1.next = s2.next
+                del s2
+                s2 = s1.next
+            else:
+                s2 = s2.next
+                del second
+                second = s2
+            cnt+=1
+        elif f2.val < s2.val:
+            if f1 != null:
+                f1.next = f2.next
+                del f2
+                f2 = f1.next
+            else:
+                f2 = f2.next
+                del first
+                first = s2
+            cnt += 1
+    if s2 != null:
+        s1.next = null
+        cp = s2
+        while cp != null:
+            temp = cp
+            cp = cp.next
+            del temp
+    if f2 != null:
+        f1.next = null
+        cp = f2
+        while cp != null:
+            temp = cp
+            cp = cp.next
+            del temp
+    return cnt, first, second
 
 tab1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 tab2 = [0,2, 3, 4, 6, 8, 10]
@@ -94,4 +92,3 @@ val, fir, sec = func(tabToLista(tab1).first, tabToLista(tab2).first)
 print(val)
 print(lista(fir))
 print(lista(sec))
-#todo ostatni element
