@@ -57,16 +57,19 @@ def insert(l: lista, val):
     cp_val = Node(val, null)
     cp, cp2 = l.first, l.first.next
     while fir != cp2:
-        if mniejszy(cp_val, cp2):
+        if mniejszy(cp_val, cp2) and mniejszy(cp, cp_val):
             cp.next = cp_val
             cp_val.next = cp2
             l.first = cp_val
-            return
+            return True
         cp, cp2 = cp2, cp2.next
-    cp.next = cp_val
-    cp_val.next = cp2
-    l.first = cp_val
-    return
+
+    if mniejszy(cp_val, cp2) and mniejszy(cp,cp_val):
+        cp.next = cp_val
+        cp_val.next = cp2
+        l.first = cp_val
+        return True
+    return False
 
 
 last = Node("zosia")
@@ -75,5 +78,7 @@ last.next = first
 listaa = lista(first)
 print(listaa)
 # bartek──leszek──marek──ola──zosia
-insert(listaa, "ala_ma_kotd")
+
+print(insert(listaa, "zala_ma_kotd"))
+print(insert(listaa, "aa"))
 print(listaa)
