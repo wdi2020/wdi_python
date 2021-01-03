@@ -55,7 +55,7 @@ def xor(first, second):
     while cp != null and cp2 != null:
         if cp.val < cp2.val:
             if nowa != null:
-                nowa_end.next = Node(cp.val,null)
+                nowa_end.next = Node(cp.val, null)
                 nowa_end = nowa_end.next
             else:
                 nowa = Node(cp.val, null)
@@ -63,7 +63,7 @@ def xor(first, second):
             cp = cp.next
         elif cp2.val < cp.val:
             if nowa != null:
-                nowa_end.next = Node(cp2.val,null)
+                nowa_end.next = Node(cp2.val, null)
                 nowa_end = nowa_end.next
             else:
                 nowa = Node(cp2.val, null)
@@ -81,4 +81,5 @@ def xor(first, second):
         cp2 = cp2.next
     return nowa
 
-print(lista(xor(tabToLista(tab).first,tabToLista(tab2).first)))
+
+print(lista(xor(tabToLista(tab).first, tabToLista(tab2).first)))
