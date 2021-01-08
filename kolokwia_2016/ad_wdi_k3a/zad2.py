@@ -33,22 +33,22 @@ class Node:
 # występujące w obu listach. Do funkcji należy przekazać wskaźniki na dwie listy, funkcja
 # powinna zwrócić łączną liczbę usuniętych elementów.
 def zmien_na_najmniejszy(first):
-    cp = first.next
+    cp = first
     min = first.val
-    while cp != first:
-        if cp.val < min:
-            return cp
+    while cp.next != first:
+        if cp.next.val < min:
+            return cp, cp.next
         cp = cp.next
-    return first
+    return cp, cp.next
+
 
 def func(first, second):
-    first = zmien_na_najmniejszy(first)
-    second = zmien_na_najmniejszy(second)
-    f1, f2 = first, first.next
-    s1, s2 = second, second.next
+    l1, first = zmien_na_najmniejszy(first)
+    l2, second = zmien_na_najmniejszy(second)
+    f1, f2 = first,first.next
+    s1, s2 = second,second.next
     cnt = 0
     while True:
-
         if f2.val < s2.val:
             f1, f2 = f2, f2.next
         elif f2.val > s2.val:
@@ -62,7 +62,7 @@ def func(first, second):
             f2 = f1.next
             cnt += 2
 
-        if f2 == first or s2 == second :
+        if f2 == first or s2 == second:
             break
     while first.val == second.val:
         cnt += 2
@@ -82,9 +82,9 @@ def tabToCycleLink(tab):
 
 
 tab1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
-tab2 = [11, 12,0,1,  2, 3, 4, 6, 8, 10]
+tab2 = [11, 12, 0, 1, 2, 3, 4, 6, 8, 10]
 ret, l1, l2 = func(tabToCycleLink(tab1), tabToCycleLink(tab2))
 print(ret)
 print(lista(l1))
 print(lista(l2))
-#0wy element sie nie usuwa //todo
+# 0wy element sie nie usuwa //todo

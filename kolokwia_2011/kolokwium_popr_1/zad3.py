@@ -1,6 +1,3 @@
-# 1. Mamy tablicę [1..max,1..max] of integer. Wyzeruj w niej wszystkie liczby które nie mają w tablicy innej
-# liczby, która powstałaby poprzez przestawienie jej cyfr. (uważając na 1000 i 0100 - nie dziala).
-# todo zadanie 1
 null = None
 
 

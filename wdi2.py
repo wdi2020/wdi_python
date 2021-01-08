@@ -1,12 +1,50 @@
-#Zadanie 21. Tablica T[8][8] zawiera liczby naturalne. Proszę napisać funkcję, która sprawdza czy można
-#wybrać z tablicy niepusty podzbiór o zadanej sumie. Warunkiem dodatkowym jest aby żadne dwa wybrane
-#elementy nie leżały w tej samej kolumnie ani wierszu. Do funkcji należy przekazać wyłącznie tablicę oraz
-#wartość sumy, funkcja powinna zwrócić wartość typu bool.
-def t(tab):
-    tab.append(1)
-    return True
-a = []
-print(True or t(a))
-print(a)
-print(True|t(a))
-print(a)
+class Node:
+    def __init__(self,value = None):
+        self.val = value
+        self.next = None
+def elem(zbior, element):
+    p = zbior
+    while p != None:
+        if p.val == element:
+            return True
+        p = p.next
+    return False
+def insert(zbior,element):
+    if zbior ==None:
+        new_elem = Node(element)
+        return new_elem
+    prev=None
+    curr=zbior
+    while curr != None:
+        if curr.val == elem:
+            return zbior
+        prev,curr = curr,curr.next
+    new_elem = Node(element)
+    prev.next = new_elem
+    return zbior
+def delete(zbior, el):
+    if zbior is None:
+        return zbior
+    prev = None
+    curr = zbior
+    if curr.val == el:
+        prev = curr.next
+        del curr
+        return prev
+    while curr is not None and curr.val != el:
+        prev = curr
+        curr = curr.next
+    if curr is None:
+        return zbior
+    prev.next = curr.next
+    del curr
+    return zbior
+zbior = None
+for i in range(15):
+    zbior = insert(zbior,i)
+for i in range(15):
+    print(elem(zbior,i))
+print("---")
+delete(zbior, 1)
+for i in range(14):
+    print(elem(zbior,i))
